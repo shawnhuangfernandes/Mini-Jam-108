@@ -14,8 +14,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [Header("Player")]
+    [Tooltip("The controller for the Rock Player")]
+    [SerializeField] private RockController Player;
+
     [Tooltip("The input for the player")]
-    [SerializeField] private GameObject Player;
     [SerializeField] private InputHandler Input;
 
     [Header("Game Start")]
@@ -40,11 +42,20 @@ public class GameManager : MonoBehaviour
 
     public enum Phase {  Menu, GamePlay, Over }
     private Phase CurrentPhase = Phase.Menu;
-
     private int Points = 0;
+
+    private float DesiredGravity;
+
+    private Vector3 PlayerPos => Player.transform.position;
+
 
     #region Monobehavior Callbacks
 
+    private void Awake()
+    {
+        DesiredGravity = Player.Gravity;
+        Player.Gravity = 0F;
+    }
     public void Start()
     {
         SetPhase(Phase.Menu);
@@ -55,13 +66,14 @@ public class GameManager : MonoBehaviour
     {
         switch(CurrentPhase)
         {
-            case Phase.Menu:                               
+            case Phase.Menu:  
+                
                 break;
             case Phase.GamePlay:
-                PlayUI.SetActive(true);
+
                 break;
             case Phase.Over:
-                EndUI.SetActive(true);
+
                 break;
         }
     }
@@ -78,32 +90,36 @@ public class GameManager : MonoBehaviour
         {
             // === MENU START ===
             case Phase.Menu:
+                Input.Skip.Pressed += LeaveMenu;
+
                 StartUI.SetActive(true);
+
                 if (Points > 0)
                 {
                     PointsTMP.text = $"{Points} Left";
-
                 }
                 else
                 {
                     PointsTMP.text = "Play To Upgrade";
-
                 }
-
-                Input.Skip.Pressed += LeaveMenu;
+       
                 StartCam.m_Priority = 1;
                 break;
 
             // === PLAY START ===
             case Phase.GamePlay:
                 PlayUI.SetActive(true);
-                Player.SetActive(true);
+                Player.Gravity = DesiredGravity;
+                Player.transform.position = new Vector3(PlayerPos.x, Player.StartHeight, PlayerPos.z);
                 PlayCam.m_Priority = 1;
                 break;
 
             // === GAME OVER START ===
             case Phase.Over:
+                Input.Skip.Pressed += EnterMenu;
+
                 EndUI.SetActive(true);
+
                 EndCam.m_Priority = 1;
                 break;
         }      
@@ -113,16 +129,22 @@ public class GameManager : MonoBehaviour
     {
         switch (CurrentPhase)
         {
+            // === MENU END ===
             case Phase.Menu:
                 Input.Skip.Pressed -= LeaveMenu;
                 StartUI.SetActive(false);               
                 StartCam.m_Priority = 0;
                 break;
+
+            // === PLAY END ===
             case Phase.GamePlay:
                 PlayUI.SetActive(false);
                 PlayCam.m_Priority = 0;
                 break;
+
+            // === GAME OVER END ===
             case Phase.Over:
+                Input.Skip.Pressed -= EnterMenu;
                 EndUI.SetActive(false);
                 break;
         }
@@ -144,12 +166,28 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void EnterMenu()
+    {
+        EndPhase();
+        SetPhase(Phase.Menu);
+        StartPhase();
+    }
+
     public void LeaveMenu()
     {
         EndPhase();
         SetPhase(Phase.GamePlay);
         StartPhase();
     }
+
+    public void LoseGame()
+    {
+        EndPhase();
+        SetPhase(Phase.Over);
+        StartPhase();
+    }
+
+
 }
 
 
