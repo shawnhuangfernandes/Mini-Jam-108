@@ -45,6 +45,6 @@ Material:
     - Transparency: 0
     - _Offset: 0
     m_Colors:
-    - OffsetVector: {r: 0, g: 0, b: 0, a: 0}
+    - OffsetVector: {r: 0, g: -0.8482551, b: 0, a: 0}
     - TilingVector: {r: 100, g: 200, b: 1, a: 0}
   m_BuildTextureStacks: []
