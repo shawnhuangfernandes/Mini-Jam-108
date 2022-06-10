@@ -4,6 +4,7 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 /// <summary>
@@ -20,6 +21,8 @@ public class GameManager : MonoBehaviour
     [Header("Game Start")]
     [Tooltip("The UI display on game start")]
     [SerializeField] private GameObject StartUI;
+    [SerializeField] private GameObject UpgradesContainer;
+    [SerializeField] private TextMeshProUGUI PointsTMP;
     [Tooltip("The camera view for the start menu")]
     [SerializeField] private CinemachineVirtualCamera StartCam;
 
@@ -37,6 +40,8 @@ public class GameManager : MonoBehaviour
 
     public enum Phase {  Menu, GamePlay, Over }
     private Phase CurrentPhase = Phase.Menu;
+
+    private int Points = 0;
 
     #region Monobehavior Callbacks
 
@@ -71,16 +76,32 @@ public class GameManager : MonoBehaviour
     {
         switch(CurrentPhase)
         {
+            // === MENU START ===
             case Phase.Menu:
                 StartUI.SetActive(true);
+                if (Points > 0)
+                {
+                    PointsTMP.text = $"{Points} Left";
+
+                }
+                else
+                {
+                    PointsTMP.text = "Play To Upgrade";
+
+                }
+
                 Input.Skip.Pressed += LeaveMenu;
                 StartCam.m_Priority = 1;
                 break;
+
+            // === PLAY START ===
             case Phase.GamePlay:
                 PlayUI.SetActive(true);
                 Player.SetActive(true);
                 PlayCam.m_Priority = 1;
                 break;
+
+            // === GAME OVER START ===
             case Phase.Over:
                 EndUI.SetActive(true);
                 EndCam.m_Priority = 1;
