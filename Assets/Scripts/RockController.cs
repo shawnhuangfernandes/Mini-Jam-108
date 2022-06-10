@@ -141,6 +141,14 @@ public class RockController : MonoBehaviour
             FaultySkip();
     }
 
+    /// <summary>
+    /// Reset the internal state of the controller.
+    /// </summary>
+    public void ResetController()
+    {
+        hasSunk = false;
+    }
+
     private void Skip()
     {
         DegradeBounceForce();
