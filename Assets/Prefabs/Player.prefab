@@ -141,9 +141,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7df4141df6e3b1409cc3b7d66d18d20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundLevel: 0
+  ThresholdSize:
+    _baseValue: 1
+  BounceForce:
+    _baseValue: 8
+  BounceDegradationMultiplier:
+    _baseValue: 0.6
+  FaultyDegradationMultiplier:
+    _baseValue: 0.4
   Gravity:
     _baseValue: -9.8
-  groundLevel: 0
+  minVelocity: -30
+  maxVelocity: 30
+  onSuccessfulSkip:
+    m_PersistentCalls:
+      m_Calls: []
+  onPrematureSkip:
+    m_PersistentCalls:
+      m_Calls: []
+  onFaultySkip:
+    m_PersistentCalls:
+      m_Calls: []
   inputHandler: {fileID: 5903392762525914151}
 --- !u!1 &8221506340944120290
 GameObject:

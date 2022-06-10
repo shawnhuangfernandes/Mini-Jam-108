@@ -29,7 +29,16 @@ public class ModifierCollection : IList<StatModifier>
 
     public void Add(StatModifier item)
     {
-        var nextInOrder = modifiers.First(m => m.Order > item.Order);
+        StatModifier nextInOrder = null;
+
+        try
+        {
+            nextInOrder = modifiers.First(m => m.Order > item.Order);
+        }
+        catch (System.InvalidOperationException) // no element found
+        {
+            nextInOrder = null;
+        }
 
         if (nextInOrder != null)
         {
@@ -79,6 +88,14 @@ public class ModifierCollection : IList<StatModifier>
     public void RemoveAt(int index)
     {
         modifiers.RemoveAt(index);
+    }
+
+    /// <summary>
+    /// Remove any modifiers that have the given flags.
+    /// </summary>
+    public void RemoveByFlag(ModifierFlags flags)
+    {
+        modifiers.RemoveAll(modifier => modifier.Flags.HasFlag(flags));
     }
 
     IEnumerator IEnumerable.GetEnumerator()
