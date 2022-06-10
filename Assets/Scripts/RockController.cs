@@ -147,7 +147,6 @@ public class RockController : MonoBehaviour
         Bounce();
 
         onSuccessfulSkip.Invoke();
-        Debug.Log("Skip!");
     }
 
     private void FaultySkip()
@@ -156,13 +155,11 @@ public class RockController : MonoBehaviour
         Bounce();
 
         onFaultySkip.Invoke();
-        Debug.Log("Faulty skip!");
     }
 
     private void PrematureSkip()
     {
         onPrematureSkip.Invoke();
-        Debug.Log("Premature skip!");
     }
 
     private void Sink()
