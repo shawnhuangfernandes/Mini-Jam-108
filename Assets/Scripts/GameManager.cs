@@ -1,6 +1,7 @@
 // Author:  Shawn Huang Fernandes
 // Date:    06/10/22
 
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,30 +12,53 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Player")]
+    [Tooltip("The input for the player")]
+    [SerializeField] private GameObject Player;
+    [SerializeField] private InputHandler Input;
 
     [Header("Game Start")]
-    [SerializeField]
     [Tooltip("The UI display on game start")]
-    private GameObject StartUI;
+    [SerializeField] private GameObject StartUI;
+    [Tooltip("The camera view for the start menu")]
+    [SerializeField] private CinemachineVirtualCamera StartCam;
 
     [Header("Game Play")]
-    [SerializeField]
     [Tooltip("The UI display on during rock skipping")]
-    public GameObject PlayUI;
+    [SerializeField] private GameObject PlayUI;
+    [Tooltip("The player follow camera view for gameplay")]
+    [SerializeField] private CinemachineVirtualCamera PlayCam;
 
     [Header("Game End")]
-    [SerializeField]
     [Tooltip("The UI display on game end")]
-    private GameObject EndUI;
+    [SerializeField] private GameObject EndUI;
+    [Tooltip("The camera for the game end")]
+    [SerializeField] private CinemachineVirtualCamera EndCam;
 
-    public enum Phase {  GameStart, GamePlay, GameEnd }
-    private Phase CurrentPhase;
+    public enum Phase {  Menu, GamePlay, Over }
+    private Phase CurrentPhase = Phase.Menu;
 
     #region Monobehavior Callbacks
+
     public void Start()
     {
-        SetPhase(Phase.GameStart);
+        SetPhase(Phase.Menu);
         StartPhase();
+    }
+
+    public void Update()
+    {
+        switch(CurrentPhase)
+        {
+            case Phase.Menu:                               
+                break;
+            case Phase.GamePlay:
+                PlayUI.SetActive(true);
+                break;
+            case Phase.Over:
+                EndUI.SetActive(true);
+                break;
+        }
     }
     #endregion
 
@@ -47,14 +71,19 @@ public class GameManager : MonoBehaviour
     {
         switch(CurrentPhase)
         {
-            case Phase.GameStart:
+            case Phase.Menu:
                 StartUI.SetActive(true);
+                Input.Skip.Pressed += LeaveMenu;
+                StartCam.m_Priority = 1;
                 break;
             case Phase.GamePlay:
                 PlayUI.SetActive(true);
+                Player.SetActive(true);
+                PlayCam.m_Priority = 1;
                 break;
-            case Phase.GameEnd:
+            case Phase.Over:
                 EndUI.SetActive(true);
+                EndCam.m_Priority = 1;
                 break;
         }      
     }
@@ -63,13 +92,16 @@ public class GameManager : MonoBehaviour
     {
         switch (CurrentPhase)
         {
-            case Phase.GameStart:
-                StartUI.SetActive(false);
+            case Phase.Menu:
+                Input.Skip.Pressed -= LeaveMenu;
+                StartUI.SetActive(false);               
+                StartCam.m_Priority = 0;
                 break;
             case Phase.GamePlay:
                 PlayUI.SetActive(false);
+                PlayCam.m_Priority = 0;
                 break;
-            case Phase.GameEnd:
+            case Phase.Over:
                 EndUI.SetActive(false);
                 break;
         }
@@ -79,16 +111,23 @@ public class GameManager : MonoBehaviour
     {
         switch (CurrentPhase)
         {
-            case Phase.GameStart:
+            case Phase.Menu:
 
                 break;
             case Phase.GamePlay:
 
                 break;
-            case Phase.GameEnd:
+            case Phase.Over:
 
                 break;
         }
+    }
+
+    public void LeaveMenu()
+    {
+        EndPhase();
+        SetPhase(Phase.GamePlay);
+        StartPhase();
     }
 }
 
