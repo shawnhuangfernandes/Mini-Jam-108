@@ -10,7 +10,6 @@ using UnityEngine;
 /// <summary>
 /// Game phase management
 /// </summary>
-
 public class GameManager : MonoBehaviour
 {
     [Header("Player")]
@@ -40,11 +39,9 @@ public class GameManager : MonoBehaviour
     [Tooltip("The camera for the game end")]
     [SerializeField] private CinemachineVirtualCamera EndCam;
 
-    public enum Phase {  Menu, GamePlay, Over }
+    public enum Phase { Menu, Gameplay, Over }
     private Phase CurrentPhase = Phase.Menu;
     private int Points = 0;
-
-    private float DesiredGravity;
 
     private Vector3 PlayerPos => Player.transform.position;
 
@@ -53,29 +50,12 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        DesiredGravity = Player.Gravity;
         Player.enabled = false;
     }
     public void Start()
     {
         SetPhase(Phase.Menu);
         StartPhase();
-    }
-
-    public void Update()
-    {
-        switch(CurrentPhase)
-        {
-            case Phase.Menu:  
-                
-                break;
-            case Phase.GamePlay:
-
-                break;
-            case Phase.Over:
-
-                break;
-        }
     }
     #endregion
 
@@ -86,7 +66,7 @@ public class GameManager : MonoBehaviour
 
     public void StartPhase()
     {
-        switch(CurrentPhase)
+        switch (CurrentPhase)
         {
             // === MENU START ===
             case Phase.Menu:
@@ -107,9 +87,10 @@ public class GameManager : MonoBehaviour
                 break;
 
             // === PLAY START ===
-            case Phase.GamePlay:
+            case Phase.Gameplay:
                 PlayUI.SetActive(true);
                 Player.enabled = true;
+                Player.ResetController();
                 Player.transform.position = new Vector3(PlayerPos.x, Player.StartHeight, PlayerPos.z);
                 PlayCam.m_Priority = 1;
                 break;
@@ -137,7 +118,7 @@ public class GameManager : MonoBehaviour
                 break;
 
             // === PLAY END ===
-            case Phase.GamePlay:
+            case Phase.Gameplay:
                 PlayUI.SetActive(false);
                 PlayCam.m_Priority = 0;
                 break;
@@ -146,22 +127,6 @@ public class GameManager : MonoBehaviour
             case Phase.Over:
                 Input.Skip.Pressed -= EnterMenu;
                 EndUI.SetActive(false);
-                break;
-        }
-    }
-
-    public void TrackPhase()
-    {
-        switch (CurrentPhase)
-        {
-            case Phase.Menu:
-
-                break;
-            case Phase.GamePlay:
-
-                break;
-            case Phase.Over:
-
                 break;
         }
     }
@@ -176,7 +141,7 @@ public class GameManager : MonoBehaviour
     public void LeaveMenu()
     {
         EndPhase();
-        SetPhase(Phase.GamePlay);
+        SetPhase(Phase.Gameplay);
         StartPhase();
     }
 
@@ -186,8 +151,4 @@ public class GameManager : MonoBehaviour
         SetPhase(Phase.Over);
         StartPhase();
     }
-
-
 }
-
-
