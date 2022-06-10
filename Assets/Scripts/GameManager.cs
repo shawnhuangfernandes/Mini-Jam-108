@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         DesiredGravity = Player.Gravity;
-        Player.Gravity = 0F;
+        Player.enabled = false;
     }
     public void Start()
     {
@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
             // === PLAY START ===
             case Phase.GamePlay:
                 PlayUI.SetActive(true);
-                Player.Gravity = DesiredGravity;
+                Player.enabled = true;
                 Player.transform.position = new Vector3(PlayerPos.x, Player.StartHeight, PlayerPos.z);
                 PlayCam.m_Priority = 1;
                 break;
