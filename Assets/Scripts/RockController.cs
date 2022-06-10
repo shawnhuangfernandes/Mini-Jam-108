@@ -1,7 +1,6 @@
 // Author:  Joseph Crump
 // Date:    06/10/22
 
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -19,8 +18,8 @@ public class RockController : MonoBehaviour
     [Tooltip("The distance above ground level that skip inputs are permitted.")]
     public Stat ThresholdSize = 1f;
 
-    [Tooltip("How much upward acceleration is applied when skipping.")]
-    public Stat BounceForce = 8f;
+    [Tooltip("How high above the ground the rock starts.")]
+    public Stat StartHeight = 8f;
 
     [Tooltip("Multiplier applied to Bounce Force on every subsequent skip.")]
     public Stat BounceDegradationMultiplier = 0.5f;
@@ -39,6 +38,10 @@ public class RockController : MonoBehaviour
     [Tooltip("The maximum velocity that the rock can reach.")]
     private float maxVelocity = 30f;
 
+    [SerializeField]
+    [Tooltip("When the bounce force drops below this value, the rock sinks.")]
+    private float sinkThreshold = 0.2f;
+
     [Header("Events")]
     [SerializeField]
     [Tooltip("Event callback for when the player successfully skips.")]
@@ -52,6 +55,10 @@ public class RockController : MonoBehaviour
     [Tooltip("Event callback for when the player doesn't press the skip input before reaching ground level.")]
     private UnityEvent onFaultySkip = new UnityEvent();
 
+    [SerializeField]
+    [Tooltip("Event callback for when the rock sinks.")]
+    private UnityEvent onSink = new UnityEvent();
+
     [Header("References")]
     [SerializeField]
     private InputHandler inputHandler;
@@ -64,12 +71,16 @@ public class RockController : MonoBehaviour
         get
         {
             yield return ThresholdSize;
-            yield return BounceForce;
+            yield return StartHeight;
+            yield return bounceForce;
             yield return BounceDegradationMultiplier;
             yield return FaultyDegradationMultiplier;
             yield return Gravity;
         }
     }
+
+    private Stat bounceForce = 8f;
+    private bool hasSunk = false;
 
     private float position
     {
@@ -84,6 +95,17 @@ public class RockController : MonoBehaviour
     }
     private float velocity = 0f;
     private float acceleration = 0f;
+
+    private void Start()
+    {
+        // initial bounce force based on starting height
+        bounceForce = position - groundLevel;
+    }
+
+    private void OnValidate()
+    {
+        position = StartHeight;
+    }
 
     private void OnEnable()
     {
@@ -106,6 +128,15 @@ public class RockController : MonoBehaviour
 
     private void Update()
     {
+        if (hasSunk)
+            return;
+
+        if (position < groundLevel && bounceForce < sinkThreshold)
+        {
+            Sink();
+            return;
+        }
+
         if (position < groundLevel && velocity <= 0f)
             FaultySkip();
     }
@@ -136,7 +167,11 @@ public class RockController : MonoBehaviour
 
     private void Sink()
     {
+        hasSunk = true;
+
         ClearTemporaryModifiers();
+        onSink.Invoke();
+        Debug.Log("Sunk!");
     }
 
     private void OnPlayerPressedSkipButton()
@@ -149,7 +184,7 @@ public class RockController : MonoBehaviour
 
     private void Bounce()
     {
-        acceleration = BounceForce;
+        acceleration = bounceForce;
         velocity = acceleration;
     }
 
@@ -163,7 +198,7 @@ public class RockController : MonoBehaviour
             Flags = ModifierFlags.Temporary
         };
 
-        BounceForce.AddModifier(modifier);
+        bounceForce.AddModifier(modifier);
     }
 
     private void ClearTemporaryModifiers()
