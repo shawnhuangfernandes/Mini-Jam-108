@@ -37,7 +37,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Curvature: -0.001
+    - Curvature: -0.0001
     - Depth: 0
     - Opacity: 0
     - Strength: 0
