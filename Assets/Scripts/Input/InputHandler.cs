@@ -1,6 +1,7 @@
 // Author:  Joseph Crump
 // Date:    06/10/22
 
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -20,9 +21,17 @@ public class InputHandler : MonoBehaviour
     /// </summary>
     public VirtualButton Skip = new VirtualButton();
 
-    private void Awake()
+    private void OnEnable()
     {
-        RegisterInputEvents();
+        // The registration is delayed until end of frame because the input
+        // component does some internal things OnEnable()
+
+        ScriptUtility.DoAtEndOfFrame(RegisterInputEvents);
+    }
+
+    private void OnDisable()
+    {
+        UnregisterInputEvents();
     }
 
     private void OnValidate()
@@ -59,6 +68,16 @@ public class InputHandler : MonoBehaviour
 public class VirtualButton
 {
     /// <summary>
+    /// Event raised whenever the button is pressed down.
+    /// </summary>
+    public event Action Pressed;
+
+    /// <summary>
+    /// Event raised whenever the button is released.
+    /// </summary>
+    public event Action Released;
+
+    /// <summary>
     /// Returns true the frame that this input was pressed.
     /// </summary>
     public bool wasPressed { get; private set; }
@@ -79,6 +98,7 @@ public class VirtualButton
         {
             wasPressed = true;
             isDown = true;
+            Pressed?.Invoke();
 
             ScriptUtility.DoAtEndOfFrame(() => wasPressed = false);
         }
@@ -87,6 +107,7 @@ public class VirtualButton
         {
             wasReleased = true;
             isDown = false;
+            Released?.Invoke();
 
             ScriptUtility.DoAtEndOfFrame(() => wasReleased = false);
         }

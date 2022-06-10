@@ -13,11 +13,7 @@ public class StatPropertyDrawer : PropertyDrawer
 {
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
-        EditorGUILayout.BeginVertical();
-
         var baseValue = property.FindPropertyRelative("_baseValue");
-        EditorGUILayout.PropertyField(baseValue, label);
-
-        EditorGUILayout.EndVertical();
+        EditorGUI.PropertyField(position, baseValue, label);
     }
 }
