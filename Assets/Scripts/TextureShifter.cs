@@ -34,4 +34,9 @@ public class TextureShifter : MonoBehaviour
     {
         offsetVector += (Vector4)translateDirection.normalized * translateSpeed * Time.deltaTime;
     }
+
+    public void SetSpeed(float _val)
+    {
+        translateSpeed = _val;
+    }
 }

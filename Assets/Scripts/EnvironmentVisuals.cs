@@ -10,18 +10,15 @@ using UnityEngine;
 /// This includes the water movement, spawning VFX
 /// </summary>
 
-public class SkipVisuals : MonoBehaviour
+public class EnvironmentVisuals : MonoBehaviour
 {
     [Header("Water Materials")]
-    [SerializeField] private Material WaterMaterial;
-    [SerializeField] private Material SandMaterial;
+    [SerializeField] private TextureShifter WaterShifter;
+    [SerializeField] private TextureShifter SandShifter;
 
     [Header("Splash Effects")]
     [SerializeField] private GameObject SplashParticle;
     [SerializeField] private float SplashHeight;
-
-    [Header("Speed")]
-    public float Speed = 0F;
 
     public void SpawnSplash()
     {
@@ -30,4 +27,10 @@ public class SkipVisuals : MonoBehaviour
         Vector3 spawnPosition = new Vector3(rockXFRM.position.x, SplashHeight, rockXFRM.position.z);
         ParticleSystem splash = Instantiate(SplashParticle, spawnPosition, Quaternion.identity).GetComponent<ParticleSystem>();
     }
+
+    public void SetWaterSpeed(float _speed)
+    {
+        WaterShifter.SetSpeed(_speed);
+        SandShifter.SetSpeed(_speed);
+    } 
 }
