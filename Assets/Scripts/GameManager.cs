@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     private GameState menuState;
 
     [SerializeField]
+    private MenuToPlayTransitionState menutoPlayTransitionState;
+
+    [SerializeField]
     private GameState playState;
 
     [SerializeField]
@@ -53,8 +56,14 @@ public class GameManager : MonoBehaviour
 
         menuState.AddTransition(new Transition()
         {
-            TargetState = playState,
+            TargetState = menutoPlayTransitionState,
             Condition = () => InputHandler.Skip.wasReleased
+        });
+
+        menutoPlayTransitionState.AddTransition(new Transition()
+        {
+            TargetState = playState,
+            Condition = () => menutoPlayTransitionState.SequenceFinished
         });
 
         playState.AddTransition(new Transition()
