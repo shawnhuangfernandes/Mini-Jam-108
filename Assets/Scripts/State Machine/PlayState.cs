@@ -42,7 +42,7 @@ public class PlayState : GameState
     protected override void OnStateEnter()
     {
         if (StartSequence != null)
-            return;
+            StopCoroutine(StartSequence);
 
         StartSequence = StartCoroutine(StartSequenceCR());
         Anim.SetBool("Started", true);               
@@ -63,6 +63,6 @@ public class PlayState : GameState
         player.ResetController();
         playmodeCamera.m_Priority = 1;
 
-        StopCoroutine(StartSequence);
+        StartSequence = null;
     }
 }
