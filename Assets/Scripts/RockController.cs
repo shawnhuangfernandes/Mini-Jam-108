@@ -175,6 +175,8 @@ public class RockController : MonoBehaviour
 
         velocity = 0f;
         acceleration = 0f;
+
+        Debug.Log($"{bounceForce.Value}");
     }
 
     private void Skip()

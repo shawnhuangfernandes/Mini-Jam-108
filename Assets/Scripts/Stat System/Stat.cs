@@ -48,7 +48,11 @@ public class Stat
     /// <summary>
     /// Remove any modifiers that have the given flags.
     /// </summary>
-    public void RemoveModifiersByFlag(ModifierFlags flags) => modifiers.RemoveByFlag(flags);
+    public void RemoveModifiersByFlag(ModifierFlags flags)
+    {
+        modifiers.RemoveByFlag(flags);
+        RecalculateModifiers();
+    }
 
     private void RecalculateModifiers()
     {
