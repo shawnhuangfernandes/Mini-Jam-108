@@ -4,6 +4,7 @@
 using Cinemachine;
 using UnityEngine;
 using TMPro;
+using JC.Audio2D;
 
 /// <summary>
 /// Gamestate for the main menu / upgrade segment.
@@ -22,6 +23,14 @@ public class MenuState : GameState
     [Tooltip("TextMesh that displays the player's point total.")]
     private TextMeshProUGUI PointsTMP;
 
+    [SerializeField]
+    [Tooltip("One shot sound on menu start")]
+    private SoundEffect StartOneShot;
+
+    [SerializeField]
+    [Tooltip("Main Menu Soundtrack")]
+    private Soundtrack MenuTrack;
+
     /// <summary>
     /// Number of points the player currently has.
     /// </summary>
@@ -37,6 +46,8 @@ public class MenuState : GameState
     {
         menuUI.SetActive(true);
         menuCamera.m_Priority = 1;
+        StartOneShot.Play();
+        MenuTrack.Play();
     }
 
     protected override void OnStateExit()
