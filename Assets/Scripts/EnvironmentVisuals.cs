@@ -28,7 +28,7 @@ public class EnvironmentVisuals : MonoBehaviour
         ParticleSystem splash = Instantiate(SplashParticle, spawnPosition, Quaternion.identity).GetComponent<ParticleSystem>();
     }
 
-    public void SetWaterSpeed(float _speed)
+    public void SetScrollSpeed(Stat _speed)
     {
         WaterShifter.SetSpeed(_speed);
         SandShifter.SetSpeed(_speed);

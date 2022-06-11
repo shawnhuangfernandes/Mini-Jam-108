@@ -11,7 +11,12 @@ public class TextureShifter : MonoBehaviour
     [Header("Properties")]
     [SerializeField]
     [Tooltip("The speed at which the texture translates.")]
-    private float translateSpeed = 0f;
+    private Stat translateSpeed;
+
+    [SerializeField]
+    [Tooltip("The speed at which the texture translates.")]
+    private float defaultScrollSpeed = 0F;
+
 
     [SerializeField]
     [Tooltip("The direction in which the texture translates.")]
@@ -32,11 +37,11 @@ public class TextureShifter : MonoBehaviour
 
     private void Update()
     {
-        offsetVector += (Vector4)translateDirection.normalized * translateSpeed * Time.deltaTime;
+        offsetVector += (Vector4)translateDirection.normalized * (translateSpeed + defaultScrollSpeed) * Time.deltaTime;
     }
 
-    public void SetSpeed(float _val)
+    public void SetSpeed(Stat _playerStat)
     {
-        translateSpeed = _val;
+        translateSpeed = _playerStat;
     }
 }

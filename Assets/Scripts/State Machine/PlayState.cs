@@ -14,7 +14,7 @@ public class PlayState : GameState
     [Tooltip("The player follow camera view for gameplay.")]
     private CinemachineVirtualCamera playmodeCamera;
 
-    [SerializeField] 
+    [SerializeField]
     [Tooltip("The UI display on during rock skipping.")]
     private GameObject playmodeUI;
 
@@ -30,12 +30,26 @@ public class PlayState : GameState
         }
     }
 
+    private EnvironmentVisuals _environmentVisuals;
+    private EnvironmentVisuals environmentVisuals
+    {
+        get
+        {
+            if (_environmentVisuals == null)
+                _environmentVisuals = FindObjectOfType<EnvironmentVisuals>();
+
+            return _environmentVisuals;
+        }
+    }
+
     protected override void OnStateEnter()
     {
         playmodeUI.SetActive(true);
         player.enabled = true;
         player.ResetController();
         playmodeCamera.m_Priority = 1;
+
+        environmentVisuals.SetScrollSpeed(player.LateralSpeed);
     }
 
     protected override void OnStateUpdate()
@@ -47,5 +61,7 @@ public class PlayState : GameState
     {
         playmodeUI.SetActive(false);
         playmodeCamera.m_Priority = 0;
+
+        environmentVisuals.SetScrollSpeed(0F);
     }
 }
