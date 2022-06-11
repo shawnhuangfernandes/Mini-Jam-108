@@ -16,7 +16,6 @@ public class EnvironmentVisuals : MonoBehaviour
     [SerializeField] private TextureShifter SandShifter;
 
     [Header("Splash Effects")]
-    [SerializeField] private GameObject SplashParticle;
     [SerializeField] private float SplashHeight;
 
     private RockController _player;
@@ -31,11 +30,11 @@ public class EnvironmentVisuals : MonoBehaviour
         }
     }
 
-    public void SpawnSplash()
+    public void SpawnSplash(GameObject _splashPrefab)
     {
         Transform rockXFRM = player.transform;
         Vector3 spawnPosition = new Vector3(rockXFRM.position.x, SplashHeight, rockXFRM.position.z);
-        ParticleSystem splash = Instantiate(SplashParticle, spawnPosition, Quaternion.identity).GetComponent<ParticleSystem>();
+        ParticleSystem splash = Instantiate(_splashPrefab, spawnPosition, Quaternion.identity).GetComponent<ParticleSystem>();
     }
 
     public void SetScrollSpeed(Stat _speed)
