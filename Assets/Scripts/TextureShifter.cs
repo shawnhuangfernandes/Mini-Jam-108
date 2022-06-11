@@ -13,19 +13,27 @@ public class TextureShifter : MonoBehaviour
 {
     [Header("Properties")]
     [SerializeField]
-    [Tooltip("The speed at which the texture translates")]
-    private float TranslateSpeed = 0f;
+    [Tooltip("The speed at which the texture translates.")]
+    private float translateSpeed = 0f;
 
     [SerializeField]
-    [Tooltip("The direction in which the texture translates")]
-    private Vector3 TranslateDirection = Vector3.zero;
+    [Tooltip("The direction in which the texture translates.")]
+    private Vector3 translateDirection = Vector3.zero;
 
     [SerializeField]
-    [Tooltip("The material to apply a translation (offset)")]
-    public Material Material;
+    [Tooltip("The affected renderer.")]
+    private new MeshRenderer renderer;
+
+    private Material material => renderer.sharedMaterial;
+
+    private Vector4 offsetVector
+    {
+        get => material.GetVector("OffsetVector");
+        set => material.SetVector("OffsetVector", value);
+    }
 
     private void Update()
     {
-        Material.SetVector("OffsetVector", Material.GetVector("OffsetVector") + (Vector4) TranslateDirection.normalized * Time.deltaTime * TranslateSpeed);
+        offsetVector += (Vector4)translateDirection.normalized * translateSpeed * Time.deltaTime;
     }
 }

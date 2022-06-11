@@ -110,9 +110,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bb2bf11844ece848ab482a26e4716c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TranslateSpeed: 5
-  TranslateDirection: {x: 0, y: -1, z: 0}
-  Material: {fileID: 2100000, guid: 97fdfdfc37afe5f48b50276d4fcf2768, type: 2}
+  translateSpeed: 0.5
+  translateDirection: {x: 0, y: 0, z: 1}
+  renderer: {fileID: 2119764969}
 --- !u!1 &3609380651552183968
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,9 +223,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bb2bf11844ece848ab482a26e4716c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TranslateSpeed: 5
-  TranslateDirection: {x: 0, y: -1, z: 0}
-  Material: {fileID: 2100000, guid: 97fdfdfc37afe5f48b50276d4fcf2768, type: 2}
+  translateSpeed: 1
+  translateDirection: {x: 0, y: -1, z: 0}
+  renderer: {fileID: 3609380651552183901}
 --- !u!1 &6680426563243787465
 GameObject:
   m_ObjectHideFlags: 0
