@@ -18,7 +18,7 @@ MonoBehaviour:
     StereoPan: 0
     PlayOnAwake: 0
     Loop: 0
-    Mixer: {fileID: 0}
+    Mixer: {fileID: 3582636206427203660, guid: 1db86cc432af30940aa5414c4def0723, type: 2}
     RandomPitchDown: 0
     RandomPitchUp: 0
   variations:

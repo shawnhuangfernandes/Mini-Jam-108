@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2119764970}
   - component: {fileID: 2119764969}
   - component: {fileID: 2119764968}
-  - component: {fileID: 6905650887753823547}
+  - component: {fileID: 4835555756589661509}
   m_Layer: 0
   m_Name: Sand
   m_TagString: Untagged
@@ -98,7 +98,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &6905650887753823547
+--- !u!114 &4835555756589661509
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,9 +110,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bb2bf11844ece848ab482a26e4716c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  translateSpeed: 0.5
-  translateDirection: {x: 0, y: 0, z: 1}
-  renderer: {fileID: 2119764969}
+  translateSpeed:
+    _baseValue: 0
+  defaultScrollSpeed: 0
+  translateDirection: {x: 0, y: 0, z: 0}
+  renderer: {fileID: 3609380651552183901}
 --- !u!1 &3609380651552183968
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,7 +127,7 @@ GameObject:
   - component: {fileID: 3609380651552183900}
   - component: {fileID: 3609380651552183901}
   - component: {fileID: 3609380651552183902}
-  - component: {fileID: 1033605258}
+  - component: {fileID: 5709708306862092952}
   m_Layer: 0
   m_Name: Water_Surface
   m_TagString: Untagged
@@ -211,7 +213,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1033605258
+--- !u!114 &5709708306862092952
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -223,8 +225,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bb2bf11844ece848ab482a26e4716c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  translateSpeed: 1
-  translateDirection: {x: 0, y: -1, z: 0}
+  translateSpeed:
+    _baseValue: 0
+  defaultScrollSpeed: 0.3
+  translateDirection: {x: 0, y: 0, z: 0}
   renderer: {fileID: 3609380651552183901}
 --- !u!1 &6680426563243787465
 GameObject:
