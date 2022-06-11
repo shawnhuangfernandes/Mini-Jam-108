@@ -677,7 +677,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7786561, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2805,6 +2805,7 @@ GameObject:
   - component: {fileID: 1052590464}
   - component: {fileID: 1052590466}
   - component: {fileID: 1052590465}
+  - component: {fileID: 1052590467}
   m_Layer: 5
   m_Name: '[Value] Points'
   m_TagString: Untagged
@@ -2928,6 +2929,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1052590463}
   m_CullTransparentMesh: 1
+--- !u!114 &1052590467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052590463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34a4c4b957370e341913f5435381a2dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ValueDisplay: {fileID: 1052590465}
+  Property: {fileID: 11400000, guid: 0879f6ae2c204da499b6adf10946acf4, type: 2}
 --- !u!1 &1056754072
 GameObject:
   m_ObjectHideFlags: 0
@@ -3108,7 +3123,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7786561, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3124,7 +3139,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1057865751}
-  m_LocalRotation: {x: 0.22975291, y: -0.000000016746089, z: 0.0000000039532155, w: 0.973249}
+  m_LocalRotation: {x: 0.22975291, y: 0.000000016746096, z: -0.0000000039532173, w: 0.973249}
   m_LocalPosition: {x: 4.235106, y: 18.95, z: -0.34234095}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3422,7 +3437,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7786561, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
