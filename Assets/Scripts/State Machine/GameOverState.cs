@@ -20,7 +20,6 @@ public class GameOverState : GameState
     protected override void OnStateEnter()
     {
         gameOverUI.SetActive(true);
-        gameOverCamera.m_Priority = 1;
     }
 
     protected override void OnStateExit()

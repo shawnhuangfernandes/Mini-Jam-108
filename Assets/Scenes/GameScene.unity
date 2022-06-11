@@ -193,6 +193,7 @@ GameObject:
   - component: {fileID: 95184585}
   - component: {fileID: 95184584}
   - component: {fileID: 95184587}
+  - component: {fileID: 95184588}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -230,6 +231,7 @@ MonoBehaviour:
   menutoPlayTransitionState: {fileID: 95184587}
   playState: {fileID: 95184585}
   gameOverState: {fileID: 95184584}
+  playToGameOverTransitionState: {fileID: 95184588}
 --- !u!114 &95184584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,6 +260,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playmodeCamera: {fileID: 1057865752}
   playmodeUI: {fileID: 2105434717}
+  StartOneShot: {fileID: 11400000, guid: a8f9c9c253f88dc49b384c4875aaf8ec, type: 2}
+  GameTrack: {fileID: 11400000, guid: cdf409115f3e26d4886bfce5a2f2e967, type: 2}
 --- !u!114 &95184586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,6 +278,7 @@ MonoBehaviour:
   menuUI: {fileID: 677208889}
   PointsTMP: {fileID: 1052590465}
   StartOneShot: {fileID: 11400000, guid: a8f9c9c253f88dc49b384c4875aaf8ec, type: 2}
+  MenuTrack: {fileID: 11400000, guid: cdf409115f3e26d4886bfce5a2f2e967, type: 2}
 --- !u!114 &95184587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,6 +293,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sequenceLength: 3.7
   animator: {fileID: 89249680}
+--- !u!114 &95184588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95184581}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ea5a6afef77e5d40b82238e84dac01d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverCamera: {fileID: 249544774}
+  sequenceLength: 2.1
 --- !u!1 &106038224
 GameObject:
   m_ObjectHideFlags: 0
@@ -1428,7 +1447,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 106}
+  m_AnchoredPosition: {x: 0, y: 174}
   m_SizeDelta: {x: 607.597, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &473550242
@@ -1562,7 +1581,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -16}
+  m_AnchoredPosition: {x: 0, y: 51.999992}
   m_SizeDelta: {x: 607.597, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &481055864
@@ -1943,7 +1962,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -271}
+  m_AnchoredPosition: {x: 0, y: -203}
   m_SizeDelta: {x: 800.074, y: 38.567}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &666911351
@@ -2219,7 +2238,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -91}
+  m_AnchoredPosition: {x: 0, y: -23.000008}
   m_SizeDelta: {x: 607.597, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &736398454
@@ -4862,6 +4881,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioEntries:
   - {fileID: 11400000, guid: 5fa3d53650f3d474fbf3dadc96e2e40a, type: 2}
+  - {fileID: 11400000, guid: cdf409115f3e26d4886bfce5a2f2e967, type: 2}
 --- !u!4 &1973515124
 Transform:
   m_ObjectHideFlags: 0
@@ -5060,6 +5080,14 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4835555756589661509, guid: 64325075a12bfcc4c8b3acfee7627800, type: 3}
+      propertyPath: defaultScrollSpeed
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835555756589661509, guid: 64325075a12bfcc4c8b3acfee7627800, type: 3}
+      propertyPath: translateDirection.y
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 5230685589149042623, guid: 64325075a12bfcc4c8b3acfee7627800, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -5103,6 +5131,10 @@ PrefabInstance:
     - target: {fileID: 5230685589149042623, guid: 64325075a12bfcc4c8b3acfee7627800, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5709708306862092952, guid: 64325075a12bfcc4c8b3acfee7627800, type: 3}
+      propertyPath: translateDirection.y
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6680426563243787465, guid: 64325075a12bfcc4c8b3acfee7627800, type: 3}
       propertyPath: m_Name

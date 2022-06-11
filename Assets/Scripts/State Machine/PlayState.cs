@@ -4,6 +4,7 @@
 using Cinemachine;
 using System.Collections;
 using UnityEngine;
+using JC.Audio2D;
 
 /// <summary>
 /// Gamestate for the main gameplay segment.
@@ -42,6 +43,14 @@ public class PlayState : GameState
         }
     }
 
+    [SerializeField]
+    [Tooltip("One shot sound on menu start")]
+    private SoundEffect StartOneShot;
+
+    [SerializeField]
+    [Tooltip("Main Menu Soundtrack")]
+    private Soundtrack GameTrack;
+
     protected override void OnStateEnter()
     {
         playmodeUI.SetActive(true);
@@ -50,6 +59,9 @@ public class PlayState : GameState
         playmodeCamera.m_Priority = 1;
 
         environmentVisuals.SetScrollSpeed(player.LateralSpeed);
+
+        StartOneShot.Play();
+        GameTrack.Play();
     }
 
     protected override void OnStateUpdate()

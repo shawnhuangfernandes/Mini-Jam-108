@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameState gameOverState;
 
+    [SerializeField]
+    private PlayToGameOverTransitionState playToGameOverTransitionState;
+
     /// <summary>
     /// The current active <see cref="GameState"/>.
     /// </summary>
@@ -68,8 +71,14 @@ public class GameManager : MonoBehaviour
 
         playState.AddTransition(new Transition()
         {
-            TargetState = gameOverState,
+            TargetState = playToGameOverTransitionState,
             Condition = () => RockController.HasSunk
+        });
+
+        playToGameOverTransitionState.AddTransition(new Transition()
+        {
+            TargetState = gameOverState,
+            Condition = () => playToGameOverTransitionState.SequenceFinished
         });
 
         gameOverState.AddTransition(new Transition()
