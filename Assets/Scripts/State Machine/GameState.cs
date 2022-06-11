@@ -11,8 +11,16 @@ public abstract class GameState : MonoBehaviour
 {
     private List<Transition> transitions = new List<Transition>();
 
+    private bool isInitialized = false;
+
     private void OnEnable()
     {
+        if (isInitialized == false)
+        {
+            OnInitialize();
+            isInitialized = true;
+        }
+
         OnStateEnter();
     }
 
@@ -59,6 +67,7 @@ public abstract class GameState : MonoBehaviour
         return false;
     }
 
+    protected virtual void OnInitialize() { }
     protected virtual void OnStateEnter() { }
     protected virtual void OnStateUpdate() { }
     protected virtual void OnStateExit() { }

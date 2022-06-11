@@ -38,6 +38,11 @@ public class PlayState : GameState
         playmodeCamera.m_Priority = 1;
     }
 
+    protected override void OnStateUpdate()
+    {
+        
+    }
+
     protected override void OnStateExit()
     {
         playmodeUI.SetActive(false);
