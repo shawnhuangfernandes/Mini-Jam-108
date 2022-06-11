@@ -27,6 +27,12 @@ public class MenuState : GameState
     /// </summary>
     public int Points { get; private set; } = 0;
 
+    protected override void OnInitialize()
+    {
+        PlayerProperty.Distance.Value = 0;
+        PlayerProperty.Points.Value = 0;
+    }
+
     protected override void OnStateEnter()
     {
         menuUI.SetActive(true);
