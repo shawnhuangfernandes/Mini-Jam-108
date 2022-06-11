@@ -2,10 +2,7 @@
 // Date:    06/10/22
 
 using Cinemachine;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 /// <summary>
 /// Gamestate for the main gameplay segment.

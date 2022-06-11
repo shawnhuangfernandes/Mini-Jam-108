@@ -1,8 +1,6 @@
 // Author:  Shawn Huang Fernandes
 // Date:    06/10/22
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>

@@ -2,9 +2,6 @@
 // Date:    06/10/22
 
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 /// <summary>
 /// A transition for a state in a state machine.
