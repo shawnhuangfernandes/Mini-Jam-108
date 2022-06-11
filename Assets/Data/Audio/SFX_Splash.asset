@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517a78bc000f86e48b79e097323a4949, type: 3}
+  m_Name: SFX_Splash
+  m_EditorClassIdentifier: 
+  settings:
+    BaseVolume: 1
+    BasePitch: 1
+    StereoPan: 0
+    PlayOnAwake: 0
+    Loop: 0
+    Mixer: {fileID: 0}
+    RandomPitchDown: 0
+    RandomPitchUp: 0
+  variations:
+  - _clip: {fileID: 8300000, guid: 24840e63cc6271542ae72415ce1e3532, type: 3}
+  - _clip: {fileID: 8300000, guid: 0b39a8f7481029a458d72e95751cd775, type: 3}
+  - _clip: {fileID: 8300000, guid: 1c851c11eab4a3e499794d2c82eef50b, type: 3}
+  - _clip: {fileID: 8300000, guid: 0ac1bc8d209ac95459193548bca7ce6e, type: 3}
+  - _clip: {fileID: 8300000, guid: 96ea83f99a6030142a7e42123827101d, type: 3}
+  - _clip: {fileID: 8300000, guid: 7040de16624cc8240b480e68da95d5f2, type: 3}

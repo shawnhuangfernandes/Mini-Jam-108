@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517a78bc000f86e48b79e097323a4949, type: 3}
+  m_Name: SFX_Sink
+  m_EditorClassIdentifier: 
+  settings:
+    BaseVolume: 1
+    BasePitch: 1
+    StereoPan: 0
+    PlayOnAwake: 0
+    Loop: 0
+    Mixer: {fileID: 0}
+    RandomPitchDown: 0
+    RandomPitchUp: 0
+  variations:
+  - _clip: {fileID: 8300000, guid: 31202334054b803479179bea974c861e, type: 3}
+  - _clip: {fileID: 8300000, guid: 5ab20f8b98ce07944827118318042580, type: 3}
+  - _clip: {fileID: 8300000, guid: 45a261d26d0b4f546b4882a1592e83be, type: 3}
+  - _clip: {fileID: 8300000, guid: 215f74e6e32c04a47ae54d82ae0fcb0a, type: 3}
+  - _clip: {fileID: 8300000, guid: 560431a8440d07348835ec50a70639ca, type: 3}
+  - _clip: {fileID: 8300000, guid: 17ca8430864744344ba7f83eac3ac69a, type: 3}
