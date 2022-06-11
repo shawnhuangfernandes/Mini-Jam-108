@@ -36,16 +36,6 @@ public class MenuState : GameState
     protected override void OnStateEnter()
     {
         menuUI.SetActive(true);
-
-        if (Points > 0)
-        {
-            PointsTMP.text = $"{Points} Left";
-        }
-        else
-        {
-            PointsTMP.text = "Play To Earn Points";
-        }
-
         menuCamera.m_Priority = 1;
     }
 

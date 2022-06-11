@@ -9,7 +9,6 @@ using UnityEngine;
 /// Component that handles visuals of rock skipping
 /// This includes the water movement, spawning VFX
 /// </summary>
-
 public class EnvironmentVisuals : MonoBehaviour
 {
     [Header("Water Materials")]
@@ -20,10 +19,21 @@ public class EnvironmentVisuals : MonoBehaviour
     [SerializeField] private GameObject SplashParticle;
     [SerializeField] private float SplashHeight;
 
+    private RockController _player;
+    private RockController player
+    {
+        get
+        {
+            if (_player == null)
+                _player = FindObjectOfType<RockController>();
+
+            return _player;
+        }
+    }
+
     public void SpawnSplash()
     {
-        Debug.Log("Doing this!");
-        Transform rockXFRM = FindObjectOfType<RockController>().transform;
+        Transform rockXFRM = player.transform;
         Vector3 spawnPosition = new Vector3(rockXFRM.position.x, SplashHeight, rockXFRM.position.z);
         ParticleSystem splash = Instantiate(SplashParticle, spawnPosition, Quaternion.identity).GetComponent<ParticleSystem>();
     }
