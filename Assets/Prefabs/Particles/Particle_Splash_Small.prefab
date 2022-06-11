@@ -5001,7 +5001,7 @@ GameObject:
   - component: {fileID: 3657320969257503119}
   - component: {fileID: 3657320969257503118}
   m_Layer: 0
-  m_Name: Particle_Splash
+  m_Name: Particle_Splash_Small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
