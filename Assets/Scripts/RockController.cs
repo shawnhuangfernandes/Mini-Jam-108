@@ -74,7 +74,6 @@ public class RockController : MonoBehaviour
     [SerializeField]
     private InputHandler inputHandler;
 
-
     /// <summary>
     /// Enumerator over every Stat belonging to the controller.
     /// </summary>
@@ -169,6 +168,8 @@ public class RockController : MonoBehaviour
     /// </summary>
     public void ResetController()
     {
+        ClearTemporaryModifiers();
+
         HasSunk = false;
         position = StartHeight;
 
@@ -203,7 +204,6 @@ public class RockController : MonoBehaviour
     {
         HasSunk = true;
 
-        ClearTemporaryModifiers();
         onSink.Invoke();
     }
 
