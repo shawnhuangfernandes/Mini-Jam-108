@@ -171,6 +171,9 @@ public class RockController : MonoBehaviour
     {
         HasSunk = false;
         position = StartHeight;
+
+        velocity = 0f;
+        acceleration = 0f;
     }
 
     private void Skip()
