@@ -38,6 +38,10 @@ public class RockController : MonoBehaviour
     public Stat LateralSpeed = 1f;
 
     [SerializeField]
+    [Tooltip("When the bounce force drops below this value, the player can no longer skip.")]
+    private float minSkippableBounceForce = 0.3f;
+
+    [SerializeField]
     [Tooltip("The minimum velocity that the rock can reach.")]
     private float minVelocity = -30f;
 
@@ -167,6 +171,9 @@ public class RockController : MonoBehaviour
     {
         HasSunk = false;
         position = StartHeight;
+
+        velocity = 0f;
+        acceleration = 0f;
     }
 
     private void Skip()
@@ -202,7 +209,7 @@ public class RockController : MonoBehaviour
 
     private void OnPlayerPressedSkipButton()
     {
-        if (!CanSkip)
+        if (!CanSkip || bounceForce < minSkippableBounceForce)
             return;
 
         if (position < ThresholdSize)
