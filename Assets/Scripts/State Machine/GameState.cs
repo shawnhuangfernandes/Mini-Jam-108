@@ -9,9 +9,15 @@ using UnityEngine;
 /// </summary>
 public abstract class GameState : MonoBehaviour
 {
+    /// <summary>
+    /// Returns the number of seconds that this state has been active.
+    /// </summary>
+    public float TimeInState => Time.time - timeStateEntered;
+
     private List<Transition> transitions = new List<Transition>();
 
     private bool isInitialized = false;
+    private float timeStateEntered;
 
     private void OnEnable()
     {
@@ -20,6 +26,8 @@ public abstract class GameState : MonoBehaviour
             OnInitialize();
             isInitialized = true;
         }
+
+        timeStateEntered = Time.time;
 
         OnStateEnter();
     }
