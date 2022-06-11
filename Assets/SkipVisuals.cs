@@ -18,6 +18,7 @@ public class SkipVisuals : MonoBehaviour
 
     [Header("Splash Effects")]
     [SerializeField] private GameObject SplashParticle;
+    [SerializeField] private float SplashHeight;
 
     [Header("Speed")]
     public float Speed = 0F;
@@ -26,7 +27,7 @@ public class SkipVisuals : MonoBehaviour
     {
         Debug.Log("Doing this!");
         Transform rockXFRM = FindObjectOfType<RockController>().transform;
-        Vector3 spawnPosition = new Vector3(rockXFRM.position.x, 0F, rockXFRM.position.y);
+        Vector3 spawnPosition = new Vector3(rockXFRM.position.x, SplashHeight, rockXFRM.position.z);
         ParticleSystem splash = Instantiate(SplashParticle, spawnPosition, Quaternion.identity).GetComponent<ParticleSystem>();
     }
 }
