@@ -53,6 +53,10 @@ public class PlayState : GameState
 
     protected override void OnStateEnter()
     {
+        PlayerProperty.Distance.Value = 0;
+        PlayerProperty.Skips.Value = 0;
+        PlayerProperty.Points.Value = 0;
+
         playmodeUI.SetActive(true);
         player.enabled = true;
         player.ResetController();
@@ -60,13 +64,14 @@ public class PlayState : GameState
 
         environmentVisuals.SetScrollSpeed(player.LateralSpeed);
 
+
         StartOneShot.Play();
         GameTrack.Play();
     }
 
     protected override void OnStateUpdate()
     {
-        PlayerProperty.Distance.Value += player.LateralSpeed * Time.deltaTime;
+        PlayerProperty.Distance.ChangeValue(player.LateralSpeed * Time.deltaTime);
     }
 
     protected override void OnStateExit()

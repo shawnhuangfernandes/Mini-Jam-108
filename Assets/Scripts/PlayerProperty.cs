@@ -38,6 +38,18 @@ public class PlayerProperty : ScriptableObject
         }
     }
 
+    private static PlayerProperty _skips;
+    public static PlayerProperty Skips
+    {
+        get
+        {
+            if (_skips == null)
+                _skips = Resources.Load<PlayerProperty>("Stats/Skips");
+
+            return _skips;
+        }
+    }
+
     /// <summary>
     /// The value of the property
     /// </summary>
@@ -60,6 +72,11 @@ public class PlayerProperty : ScriptableObject
 
     public delegate void ValueChangeEvent(float _value);
     public event ValueChangeEvent Changed;
+
+    public void ChangeValue(float _value)
+    {
+        Value += _value;
+    }
 
 
 }

@@ -19,7 +19,10 @@ public class GameOverState : GameState
 
     protected override void OnStateEnter()
     {
+        PlayerProperty.Points.Value = PlayerProperty.Distance.Value + PlayerProperty.Skips.Value;
         gameOverUI.SetActive(true);
+
+
     }
 
     protected override void OnStateExit()
