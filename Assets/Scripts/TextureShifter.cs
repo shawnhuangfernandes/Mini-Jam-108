@@ -17,7 +17,6 @@ public class TextureShifter : MonoBehaviour
     [Tooltip("The speed at which the texture translates.")]
     private float defaultScrollSpeed = 0F;
 
-
     [SerializeField]
     [Tooltip("The direction in which the texture translates.")]
     private Vector3 translateDirection = Vector3.zero;
