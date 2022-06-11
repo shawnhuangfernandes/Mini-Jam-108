@@ -26,5 +26,6 @@ public class GameOverState : GameState
     protected override void OnStateExit()
     {
         gameOverUI.SetActive(false);
+        gameOverCamera.m_Priority = 0;
     }
 }

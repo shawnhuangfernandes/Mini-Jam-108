@@ -28,6 +28,7 @@ public class PropertyDisplayer : MonoBehaviour
     private void OnEnable()
     {
         Property.Changed += UpdateDisplay;
+        UpdateDisplay(Property.Value);
     }
 
     private void OnDisable()
