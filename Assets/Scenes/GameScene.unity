@@ -222,6 +222,7 @@ GameObject:
   - component: {fileID: 95184586}
   - component: {fileID: 95184585}
   - component: {fileID: 95184584}
+  - component: {fileID: 95184587}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -256,6 +257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuState: {fileID: 95184586}
+  menutoPlayTransitionState: {fileID: 0}
   playState: {fileID: 95184585}
   gameOverState: {fileID: 95184584}
 --- !u!114 &95184584
@@ -286,8 +288,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playmodeCamera: {fileID: 1057865752}
   playmodeUI: {fileID: 2105434717}
-  Anim: {fileID: 89249680}
-  SequenceLength: 3.5
 --- !u!114 &95184586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,6 +303,20 @@ MonoBehaviour:
   menuCamera: {fileID: 1157696500}
   menuUI: {fileID: 677208889}
   PointsTMP: {fileID: 1052590465}
+--- !u!114 &95184587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95184581}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef73d7b7947bdcf4ea49e69ef0891499, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sequenceLength: 3
+  animator: {fileID: 89249680}
 --- !u!1 &131231449
 GameObject:
   m_ObjectHideFlags: 0
@@ -660,7 +674,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7772021, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2986,7 +3000,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7772021, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3300,7 +3314,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7772021, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
