@@ -25,6 +25,9 @@ public abstract class GameState : MonoBehaviour
 
     private void OnDisable()
     {
+        if (!Application.isPlaying)
+            return;
+
         OnStateExit();
     }
 

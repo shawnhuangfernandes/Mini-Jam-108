@@ -1,14 +1,10 @@
-// Author:  Shawn Huang Fernandes
+// Author:  Shawn Huang Fernandes & Joseph Crump
 // Date:    06/10/22
 
-using Cinemachine;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 /// <summary>
-/// Game phase management
+/// Game state manager.
 /// </summary>
 public class GameManager : MonoBehaviour
 {

@@ -108,7 +108,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4749566631764073883}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 8, z: 0}
+  m_LocalPosition: {x: 0, y: 16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4749566630999463433}
@@ -145,15 +145,16 @@ MonoBehaviour:
   ThresholdSize:
     _baseValue: 1.5
   StartHeight:
-    _baseValue: 8
+    _baseValue: 16
   BounceDegradationMultiplier:
     _baseValue: 0.6
   FaultyDegradationMultiplier:
-    _baseValue: 0.4
+    _baseValue: 0.3
   Gravity:
-    _baseValue: -9.8
+    _baseValue: -9.81
   minVelocity: -30
   maxVelocity: 30
+  sinkThreshold: 0.2
   onSuccessfulSkip:
     m_PersistentCalls:
       m_Calls: []
@@ -161,6 +162,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onFaultySkip:
+    m_PersistentCalls:
+      m_Calls: []
+  onSink:
     m_PersistentCalls:
       m_Calls: []
   inputHandler: {fileID: 5903392762525914151}
