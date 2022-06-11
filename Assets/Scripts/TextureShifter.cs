@@ -6,9 +6,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Component that translates the texture on a mesh by a particular speed
+/// Component that translates the texture on a mesh by a particular speed.
 /// </summary>
-
 public class TextureShifter : MonoBehaviour
 {
     [Header("Properties")]
@@ -20,6 +19,7 @@ public class TextureShifter : MonoBehaviour
     [Tooltip("The direction in which the texture translates.")]
     private Vector3 translateDirection = Vector3.zero;
 
+    [Header("References")]
     [SerializeField]
     [Tooltip("The affected renderer.")]
     private new MeshRenderer renderer;
