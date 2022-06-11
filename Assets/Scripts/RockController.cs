@@ -34,6 +34,9 @@ public class RockController : MonoBehaviour
     [Tooltip("How long the player has to wait to skip again after a premature skip attempt.")]
     public Stat PrematureSkipCooldown = .5f;
 
+    [Tooltip("How far the player travels in one second")]
+    public Stat LateralSpeed = 1f;
+
     [SerializeField]
     [Tooltip("The minimum velocity that the rock can reach.")]
     private float minVelocity = -30f;
@@ -67,6 +70,7 @@ public class RockController : MonoBehaviour
     [SerializeField]
     private InputHandler inputHandler;
 
+
     /// <summary>
     /// Enumerator over every Stat belonging to the controller.
     /// </summary>
@@ -81,6 +85,7 @@ public class RockController : MonoBehaviour
             yield return FaultyDegradationMultiplier;
             yield return Gravity;
             yield return PrematureSkipCooldown;
+            yield return LateralSpeed;
         }
     }
 

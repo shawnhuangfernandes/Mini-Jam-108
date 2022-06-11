@@ -38,8 +38,25 @@ public class PlayerProperty : ScriptableObject
         }
     }
 
-    [Tooltip("The value we are tracking")]
-    public float Value;
+    /// <summary>
+    /// The value of the property
+    /// </summary>
+
+    public float Value
+    {
+        get => _Value;
+        
+        set
+        {
+            if (_Value == value)
+                return;
+
+            _Value = value;
+            Changed?.Invoke(_Value);
+        }
+    }
+
+    private float _Value;
 
     public delegate void ValueChangeEvent(float _value);
     public event ValueChangeEvent Changed;

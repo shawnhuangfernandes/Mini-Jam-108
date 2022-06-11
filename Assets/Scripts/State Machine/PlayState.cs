@@ -30,6 +30,16 @@ public class PlayState : GameState
         }
     }
 
+    protected override void OnInitialize()
+    {
+        PlayerProperty.Distance.Changed += OnDistanceChanged;
+    }
+
+    private void OnDistanceChanged(float _value)
+    {
+        throw new System.NotImplementedException();
+    }
+
     protected override void OnStateEnter()
     {
         playmodeUI.SetActive(true);
@@ -40,7 +50,7 @@ public class PlayState : GameState
 
     protected override void OnStateUpdate()
     {
-        
+        PlayerProperty.Distance.Value += player.LateralSpeed * Time.deltaTime;
     }
 
     protected override void OnStateExit()
