@@ -1,6 +1,7 @@
 // Author:  Joseph Crump
 // Date:    06/10/22
 
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -29,6 +30,9 @@ public class RockController : MonoBehaviour
 
     [Tooltip("How rapidly the object accelerates towards the ground.")]
     public Stat Gravity = -9.8f;
+
+    [Tooltip("How long the player has to wait to skip again after a premature skip attempt.")]
+    public Stat PrematureSkipCooldown = .5f;
 
     [SerializeField]
     [Tooltip("The minimum velocity that the rock can reach.")]
@@ -76,6 +80,7 @@ public class RockController : MonoBehaviour
             yield return BounceDegradationMultiplier;
             yield return FaultyDegradationMultiplier;
             yield return Gravity;
+            yield return PrematureSkipCooldown;
         }
     }
 
@@ -83,6 +88,11 @@ public class RockController : MonoBehaviour
     /// Returns true if the rock has stopped skipping and sank.
     /// </summary>
     public bool HasSunk { get; private set; } = false;
+
+    /// <summary>
+    /// Returns true if the player's 'Skip' input is not locked (due to a premature skip).
+    /// </summary>
+    public bool CanSkip { get; private set; } = true;
 
     private Stat bounceForce = 8f;
 
@@ -173,6 +183,8 @@ public class RockController : MonoBehaviour
     private void PrematureSkip()
     {
         onPrematureSkip.Invoke();
+
+        StartCoroutine(PrematureSkipInputCooldown());
     }
 
     private void Sink()
@@ -181,11 +193,13 @@ public class RockController : MonoBehaviour
 
         ClearTemporaryModifiers();
         onSink.Invoke();
-        Debug.Log("Sunk!");
     }
 
     private void OnPlayerPressedSkipButton()
     {
+        if (!CanSkip)
+            return;
+
         if (position < ThresholdSize)
             Skip();
         else
@@ -217,5 +231,12 @@ public class RockController : MonoBehaviour
         {
             stat.RemoveModifiersByFlag(ModifierFlags.Temporary);
         }
+    }
+
+    private IEnumerator PrematureSkipInputCooldown()
+    {
+        CanSkip = false;
+        yield return new WaitForSeconds(PrematureSkipCooldown);
+        CanSkip = true;
     }
 }
