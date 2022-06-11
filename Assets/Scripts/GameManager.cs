@@ -12,143 +12,87 @@ using UnityEngine;
 /// </summary>
 public class GameManager : MonoBehaviour
 {
-    [Header("Player")]
-    [Tooltip("The controller for the Rock Player")]
-    [SerializeField] private RockController Player;
+    [Header("Game States")]
+    [SerializeField]
+    private GameState menuState;
 
-    [Tooltip("The input for the player")]
-    [SerializeField] private InputHandler Input;
+    [SerializeField]
+    private GameState playState;
 
-    [Header("Game Start")]
-    [Tooltip("The UI display on game start")]
-    [SerializeField] private GameObject StartUI;
-    [SerializeField] private GameObject UpgradesContainer;
-    [SerializeField] private TextMeshProUGUI PointsTMP;
-    [Tooltip("The camera view for the start menu")]
-    [SerializeField] private CinemachineVirtualCamera StartCam;
+    [SerializeField]
+    private GameState gameOverState;
 
-    [Header("Game Play")]
-    [Tooltip("The UI display on during rock skipping")]
-    [SerializeField] private GameObject PlayUI;
-    [Tooltip("The player follow camera view for gameplay")]
-    [SerializeField] private CinemachineVirtualCamera PlayCam;
+    /// <summary>
+    /// The current active <see cref="GameState"/>.
+    /// </summary>
+    public GameState CurrentState { get; private set; }
 
-    [Header("Game End")]
-    [Tooltip("The UI display on game end")]
-    [SerializeField] private GameObject EndUI;
-    [Tooltip("The camera for the game end")]
-    [SerializeField] private CinemachineVirtualCamera EndCam;
-
-    public enum Phase { Menu, Gameplay, Over }
-    private Phase CurrentPhase = Phase.Menu;
-    private int Points = 0;
-
-    private Vector3 PlayerPos => Player.transform.position;
-
-
-    #region Monobehavior Callbacks
-
-    private void Awake()
+    private InputHandler _inputHandler;
+    private InputHandler InputHandler
     {
-        Player.enabled = false;
-    }
-    public void Start()
-    {
-        SetPhase(Phase.Menu);
-        StartPhase();
-    }
-    #endregion
-
-    public void SetPhase(Phase _phase)
-    {
-        CurrentPhase = _phase;
-    }
-
-    public void StartPhase()
-    {
-        switch (CurrentPhase)
+        get
         {
-            // === MENU START ===
-            case Phase.Menu:
-                Input.Skip.Pressed += LeaveMenu;
+            if (_inputHandler == null)
+                _inputHandler = FindObjectOfType<InputHandler>();
 
-                StartUI.SetActive(true);
-
-                if (Points > 0)
-                {
-                    PointsTMP.text = $"{Points} Left";
-                }
-                else
-                {
-                    PointsTMP.text = "Play To Upgrade";
-                }
-       
-                StartCam.m_Priority = 1;
-                break;
-
-            // === PLAY START ===
-            case Phase.Gameplay:
-                PlayUI.SetActive(true);
-                Player.enabled = true;
-                Player.ResetController();
-                Player.transform.position = new Vector3(PlayerPos.x, Player.StartHeight, PlayerPos.z);
-                PlayCam.m_Priority = 1;
-                break;
-
-            // === GAME OVER START ===
-            case Phase.Over:
-                Input.Skip.Pressed += EnterMenu;
-
-                EndUI.SetActive(true);
-
-                EndCam.m_Priority = 1;
-                break;
-        }      
-    }
-
-    public void EndPhase()
-    {
-        switch (CurrentPhase)
-        {
-            // === MENU END ===
-            case Phase.Menu:
-                Input.Skip.Pressed -= LeaveMenu;
-                StartUI.SetActive(false);               
-                StartCam.m_Priority = 0;
-                break;
-
-            // === PLAY END ===
-            case Phase.Gameplay:
-                PlayUI.SetActive(false);
-                PlayCam.m_Priority = 0;
-                break;
-
-            // === GAME OVER END ===
-            case Phase.Over:
-                Input.Skip.Pressed -= EnterMenu;
-                EndUI.SetActive(false);
-                break;
+            return _inputHandler;
         }
     }
 
-    public void EnterMenu()
+    private RockController _rockController;
+    private RockController RockController
     {
-        EndPhase();
-        SetPhase(Phase.Menu);
-        StartPhase();
+        get
+        {
+            if (_rockController == null)
+                _rockController = FindObjectOfType<RockController>();
+
+            return _rockController;
+        }
     }
 
-    public void LeaveMenu()
+    private void Awake()
     {
-        EndPhase();
-        SetPhase(Phase.Gameplay);
-        StartPhase();
+        RockController.enabled = false;
+
+        menuState.AddTransition(new Transition()
+        {
+            TargetState = playState,
+            Condition = () => InputHandler.Skip.wasReleased
+        });
+
+        playState.AddTransition(new Transition()
+        {
+            TargetState = gameOverState,
+            Condition = () => RockController.HasSunk
+        });
+
+        gameOverState.AddTransition(new Transition()
+        {
+            TargetState = menuState,
+            Condition = () => InputHandler.Skip.wasReleased
+        });
     }
 
-    public void LoseGame()
+    public void Start()
     {
-        EndPhase();
-        SetPhase(Phase.Over);
-        StartPhase();
+        ChangeState(menuState);
+    }
+
+    private void Update()
+    {
+        if (CurrentState.TryTransitions(out GameState state))
+        {
+            ChangeState(state);
+        }
+    }
+
+    public void ChangeState(GameState state)
+    {
+        if (CurrentState != null)
+            CurrentState.enabled = false;
+
+        CurrentState = state;
+        CurrentState.enabled = true;
     }
 }

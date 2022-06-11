@@ -79,8 +79,12 @@ public class RockController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Returns true if the rock has stopped skipping and sank.
+    /// </summary>
+    public bool HasSunk { get; private set; } = false;
+
     private Stat bounceForce = 8f;
-    private bool hasSunk = false;
 
     private float position
     {
@@ -128,7 +132,7 @@ public class RockController : MonoBehaviour
 
     private void Update()
     {
-        if (hasSunk)
+        if (HasSunk)
             return;
 
         if (position < groundLevel && bounceForce < sinkThreshold)
@@ -146,7 +150,8 @@ public class RockController : MonoBehaviour
     /// </summary>
     public void ResetController()
     {
-        hasSunk = false;
+        HasSunk = false;
+        position = StartHeight;
     }
 
     private void Skip()
@@ -172,7 +177,7 @@ public class RockController : MonoBehaviour
 
     private void Sink()
     {
-        hasSunk = true;
+        HasSunk = true;
 
         ClearTemporaryModifiers();
         onSink.Invoke();

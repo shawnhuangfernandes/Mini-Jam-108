@@ -166,6 +166,9 @@ GameObject:
   m_Component:
   - component: {fileID: 95184582}
   - component: {fileID: 95184583}
+  - component: {fileID: 95184586}
+  - component: {fileID: 95184585}
+  - component: {fileID: 95184584}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -199,16 +202,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ed2c8fffed454b4fbc5209e75a5fd2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 1471924388}
-  Input: {fileID: 619205423}
-  StartUI: {fileID: 677208889}
-  UpgradesContainer: {fileID: 1118810446}
+  menuState: {fileID: 95184586}
+  playState: {fileID: 95184585}
+  gameOverState: {fileID: 95184584}
+--- !u!114 &95184584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95184581}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce427e5adaed1b4193629f81a3bab82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverCamera: {fileID: 249544774}
+  gameOverUI: {fileID: 137284934}
+--- !u!114 &95184585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95184581}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7cc306656eab4147b32041bc2e31576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playmodeCamera: {fileID: 1057865752}
+  playmodeUI: {fileID: 2105434717}
+--- !u!114 &95184586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95184581}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f8090354c6a15a44b114824c6c7018a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuCamera: {fileID: 1157696500}
+  menuUI: {fileID: 677208889}
   PointsTMP: {fileID: 1052590465}
-  StartCam: {fileID: 1157696500}
-  PlayUI: {fileID: 2105434717}
-  PlayCam: {fileID: 1057865752}
-  EndUI: {fileID: 137284934}
-  EndCam: {fileID: 249544774}
 --- !u!1 &131231449
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,7 +409,7 @@ GameObject:
   m_Component:
   - component: {fileID: 137284935}
   m_Layer: 5
-  m_Name: EndUI
+  m_Name: '[Panel] Game Over UI'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -531,7 +570,7 @@ GameObject:
   - component: {fileID: 249544775}
   - component: {fileID: 249544774}
   m_Layer: 0
-  m_Name: GameEndCamera
+  m_Name: GameOverCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -566,7 +605,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7770898, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1122,7 +1161,7 @@ GameObject:
   - component: {fileID: 424069943}
   - component: {fileID: 424069942}
   m_Layer: 5
-  m_Name: TMP_Header
+  m_Name: '[Label] Distance'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1294,7 +1333,7 @@ GameObject:
   - component: {fileID: 473550243}
   - component: {fileID: 473550242}
   m_Layer: 5
-  m_Name: TMP_Sunk
+  m_Name: '[Zinger] Sunk!'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1428,7 +1467,7 @@ GameObject:
   - component: {fileID: 481055865}
   - component: {fileID: 481055864}
   m_Layer: 5
-  m_Name: TMP_Traveled
+  m_Name: '[Label] Distance'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1562,7 +1601,7 @@ GameObject:
   - component: {fileID: 577780879}
   - component: {fileID: 577780878}
   m_Layer: 5
-  m_Name: TMP_Value
+  m_Name: '[Value] Distance'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1684,17 +1723,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577780876}
   m_CullTransparentMesh: 1
---- !u!114 &619205423 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5903392762525914151, guid: e0f1a3d754f13cc49a7df350c2c003ab, type: 3}
-  m_PrefabInstance: {fileID: 4749566631260551540}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 848d32f2b3d242846a01cd412adc7dda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &638444784 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4749566631764073860, guid: e0f1a3d754f13cc49a7df350c2c003ab, type: 3}
@@ -1743,7 +1771,7 @@ GameObject:
   - component: {fileID: 666911352}
   - component: {fileID: 666911351}
   m_Layer: 5
-  m_Name: TMP_Traveled (2)
+  m_Name: '[Prompt] Press Space'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1875,7 +1903,7 @@ GameObject:
   m_Component:
   - component: {fileID: 677208890}
   m_Layer: 5
-  m_Name: StartUI
+  m_Name: '[Panel] Menu UI'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2018,7 +2046,7 @@ GameObject:
   - component: {fileID: 736398455}
   - component: {fileID: 736398454}
   m_Layer: 5
-  m_Name: TMP_Traveled (1)
+  m_Name: '[Value] Distance'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2414,7 +2442,7 @@ GameObject:
   - component: {fileID: 1052590466}
   - component: {fileID: 1052590465}
   m_Layer: 5
-  m_Name: TMP_PointsRemaining
+  m_Name: '[Value] Points'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2548,7 +2576,7 @@ GameObject:
   - component: {fileID: 1056754075}
   - component: {fileID: 1056754074}
   m_Layer: 5
-  m_Name: TMP_Skip
+  m_Name: '[Title] Skip'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2681,7 +2709,7 @@ GameObject:
   - component: {fileID: 1057865753}
   - component: {fileID: 1057865752}
   m_Layer: 0
-  m_Name: PlayerCamera
+  m_Name: PlayModeCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2716,7 +2744,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7770898, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2732,7 +2760,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1057865751}
-  m_LocalRotation: {x: 0.22975291, y: -0.000000016746089, z: 0.0000000039532155, w: 0.973249}
+  m_LocalRotation: {x: 0.22975291, y: 0.000000016746096, z: -0.0000000039532173, w: 0.973249}
   m_LocalPosition: {x: 4.235106, y: 18.95, z: -0.34234095}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2752,7 +2780,7 @@ GameObject:
   - component: {fileID: 1069360985}
   - component: {fileID: 1069360984}
   m_Layer: 5
-  m_Name: TMP_Upgrades
+  m_Name: '[Label] Upgrades'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2995,7 +3023,7 @@ GameObject:
   - component: {fileID: 1157696501}
   - component: {fileID: 1157696500}
   m_Layer: 0
-  m_Name: StartCamera
+  m_Name: MenuCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3030,7 +3058,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7770898, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3187,7 +3215,7 @@ GameObject:
   - component: {fileID: 1223649428}
   - component: {fileID: 1223649427}
   m_Layer: 5
-  m_Name: TMP_PressSpace
+  m_Name: '[Prompt] Press Space'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3719,17 +3747,6 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 10fc4df2da32a41aaa32d77bc913491c, type: 2}
---- !u!114 &1471924388 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6272663158344406592, guid: e0f1a3d754f13cc49a7df350c2c003ab, type: 3}
-  m_PrefabInstance: {fileID: 4749566631260551540}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7df4141df6e3b1409cc3b7d66d18d20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1660420144
 GameObject:
   m_ObjectHideFlags: 0
@@ -4314,17 +4331,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
-  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_PointAction: {fileID: 1054132383583890850, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MoveAction: {fileID: 3710738434707379630, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_SubmitAction: {fileID: 2064916234097673511, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_CancelAction: {fileID: -1967631576421560919, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_LeftClickAction: {fileID: 8056856818456041789, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MiddleClickAction: {fileID: 3279352641294131588, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_RightClickAction: {fileID: 3837173908680883260, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_ScrollWheelAction: {fileID: 4502412055082496612, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDevicePositionAction: {fileID: 4754684134866288074, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: 1025543830046995696, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: e18fed2a699452147845795a98eb4a34, type: 3}
+  m_PointAction: {fileID: -4484157525844829363, guid: e18fed2a699452147845795a98eb4a34, type: 3}
+  m_MoveAction: {fileID: 1263993286422978538, guid: e18fed2a699452147845795a98eb4a34, type: 3}
+  m_SubmitAction: {fileID: -1221299137005632700, guid: e18fed2a699452147845795a98eb4a34, type: 3}
+  m_CancelAction: {fileID: -2356843080110542084, guid: e18fed2a699452147845795a98eb4a34, type: 3}
+  m_LeftClickAction: {fileID: -2831749648910775866, guid: e18fed2a699452147845795a98eb4a34, type: 3}
+  m_MiddleClickAction: {fileID: 8977925502109868744, guid: e18fed2a699452147845795a98eb4a34, type: 3}
+  m_RightClickAction: {fileID: 7970843258755120166, guid: e18fed2a699452147845795a98eb4a34, type: 3}
+  m_ScrollWheelAction: {fileID: -1060710227894221404, guid: e18fed2a699452147845795a98eb4a34, type: 3}
+  m_TrackedDevicePositionAction: {fileID: -616014072700396733, guid: e18fed2a699452147845795a98eb4a34, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 9064738470734361378, guid: e18fed2a699452147845795a98eb4a34, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
 --- !u!114 &2103230706
@@ -4352,7 +4369,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2105434718}
   m_Layer: 5
-  m_Name: PlayUI
+  m_Name: '[Panel] Playmode UI'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
