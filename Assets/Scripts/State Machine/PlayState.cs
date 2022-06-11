@@ -30,16 +30,6 @@ public class PlayState : GameState
         }
     }
 
-    protected override void OnInitialize()
-    {
-        PlayerProperty.Distance.Changed += OnDistanceChanged;
-    }
-
-    private void OnDistanceChanged(float _value)
-    {
-        throw new System.NotImplementedException();
-    }
-
     protected override void OnStateEnter()
     {
         playmodeUI.SetActive(true);
