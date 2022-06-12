@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseCost: 15
   rarity: {fileID: 11400000, guid: 2be421e4812e84b4a9a2802b456ebbcf, type: 2}
+<<<<<<< Updated upstream
   icon: {fileID: 21300000, guid: f2fcd9cffde70364fae7bed57e7cb74e, type: 3}
+=======
+  icon: {fileID: 21300000, guid: 7d7f24d6b709b0646ac1408d8eced7e2, type: 3}
+>>>>>>> Stashed changes
   upgrades:
   - affectedStat: 1
     modifier:
