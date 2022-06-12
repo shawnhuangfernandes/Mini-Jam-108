@@ -69,7 +69,6 @@ public class MenuState : GameState
         menuCamera.m_Priority = 1;
         StartOneShot.Play();
 
-
         menuUI.SetActive(true);
 
         bool showShop = (gameManager.CurrentRound > 0);

@@ -19,8 +19,6 @@ public class PlayState : GameState
     [Tooltip("The UI display on during rock skipping.")]
     private GameObject playmodeUI;
 
-
-
     private RockController _player;
     private RockController player
     {
@@ -56,8 +54,6 @@ public class PlayState : GameState
     [SerializeField]
     private float TrackDelay;
 
-
-
     protected override void OnStateEnter()
     {
         PlayerProperty.Distance.Value = 0;
@@ -87,6 +83,14 @@ public class PlayState : GameState
 
         environmentVisuals.SetScrollSpeed(0F);
 
+        GameTrack.Stop();
+
+        if (PlayerProperty.Distance > PlayerProperty.BestDistance)
+            PlayerProperty.BestDistance.Value = PlayerProperty.Distance.Value;
+
+        PlayerProperty.TotalDistance.Value += PlayerProperty.Distance;
+        PlayerProperty.TotalSkips.Value += PlayerProperty.Skips;
+        
         AudioManager.Instance.FadeOutSoundtrack(GameTrack);
     }
 

@@ -50,6 +50,8 @@ public class UpgradeButton : MonoBehaviour
     private ShopUpgrade storedUpgrade;
 
     private PlayerProperty points => PlayerProperty.Points;
+    private PlayerProperty upgradesBought => PlayerProperty.UpgradesBought;
+
     private bool playerCanAffordUpgrade
     {
         get
@@ -117,6 +119,8 @@ public class UpgradeButton : MonoBehaviour
         Purchased?.Invoke(this, storedUpgrade);
 
         PurchaseSoundEffect.Play();
+
+        upgradesBought.Value++;
     }
 
     private void CheckEnabledState()
