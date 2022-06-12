@@ -58,6 +58,7 @@ public class EnvironmentVisuals : MonoBehaviour
 
     public void SpawnFloater()
     {
+        Debug.Log("SPAWN!");
         float xPos = UnityEngine.Random.Range(MinXDistance, MaxXDistance);
         float zPos = UnityEngine.Random.Range(MinZDistance, MaxZDistance);
         Vector3 playerPos = player.transform.position;
