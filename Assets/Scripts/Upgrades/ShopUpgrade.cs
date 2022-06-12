@@ -49,7 +49,7 @@ public class ShopUpgrade : ScriptableObject
         upgrades.ForEach(upgrade => upgrade.Apply());
     }
 
-    private void Awake()
+    private void OnValidate()
     {
         var shop = FindObjectOfType<Shop>();
         shop.AddUpgrade(this);

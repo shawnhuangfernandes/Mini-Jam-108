@@ -2039,8 +2039,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeCostMultiplier:
     _baseValue: 1
-  upgrades:
-  - {fileID: 0}
 --- !u!1 &665517685
 GameObject:
   m_ObjectHideFlags: 0
