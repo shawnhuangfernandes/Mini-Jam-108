@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
     private PlayToGameOverTransitionState playToGameOverTransitionState;
 
     [SerializeField]
+    private GameState postMortemState;
+
+    [SerializeField]
     [Tooltip("How many rounds of gameplay there are before the game ends.")]
     private int rounds = 10;
 
@@ -46,7 +49,11 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// The current round of gameplay.
     /// </summary>
-    public int CurrentRound { get; private set; } = 0;
+    public int CurrentRound
+    {
+        get => (int)PlayerProperty.Rounds.Value;
+        private set => PlayerProperty.Rounds.Value = value;
+    }
 
     /// <summary>
     /// Number of rounds of gameplay before the game ends.
@@ -114,9 +121,10 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
-        ChangeState(menuState);
+        menuState.Exited += OnMenuStateExited;
+        gameOverState.Entered += OnGameOverStateEntered;
 
-        playState.Exited += OnPlayStateExited;
+        ChangeState(menuState);
     }
 
     private void Update()
@@ -136,8 +144,27 @@ public class GameManager : MonoBehaviour
         CurrentState.enabled = true;
     }
 
-    private void OnPlayStateExited()
+    private void OnMenuStateExited()
     {
         CurrentRound++;
+    }
+
+    private void OnGameOverStateEntered()
+    {
+        OnRoundFinished();
+    }
+
+    private void OnRoundFinished()
+    {
+        if (CurrentRound == 10)
+        {
+            HandleLastRoundFinished();
+            return;
+        }
+    }
+
+    private void HandleLastRoundFinished()
+    {
+        ChangeState(postMortemState);
     }
 }

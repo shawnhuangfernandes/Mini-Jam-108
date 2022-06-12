@@ -61,9 +61,28 @@ public abstract class GameState : MonoBehaviour
         Exited?.Invoke();
     }
 
+    /// <summary>
+    /// Add a transition to the gamestate.
+    /// </summary>
     public void AddTransition(Transition transition)
     {
         transitions.Add(transition);
+    }
+
+    /// <summary>
+    /// Remove a transition from the gamestate.
+    /// </summary>
+    public void RemoveTransition(Transition transition)
+    {
+        transitions.Remove(transition);
+    }
+
+    /// <summary>
+    /// Remove all transitions from the gamestate.
+    /// </summary>
+    public void ClearTransitions()
+    {
+        transitions.Clear();
     }
 
     /// <summary>

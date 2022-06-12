@@ -10,15 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9fe29b46d8e89f459389985fd9930ea, type: 3}
-  m_Name: Telekinetic
+  m_Name: Hover
   m_EditorClassIdentifier: 
   baseCost: 15
   rarity: {fileID: 11400000, guid: c6bf507c6da3e7046a75c7eda3fce558, type: 2}
-<<<<<<< Updated upstream
-  icon: {fileID: 21300000, guid: f2fcd9cffde70364fae7bed57e7cb74e, type: 3}
-=======
-  icon: {fileID: 21300000, guid: 3f1e2d6b0d16a3f4fa031a6fb8bdb570, type: 3}
->>>>>>> Stashed changes
+  icon: {fileID: 21300000, guid: 2dc093f7346367148b2888724b6b58b2, type: 3}
   upgrades:
   - affectedStat: 0
     modifier:
