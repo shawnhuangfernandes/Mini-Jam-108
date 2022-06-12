@@ -179,6 +179,9 @@ public class RockController : MonoBehaviour
 
     private void Skip()
     {
+        if (velocity > 0f)
+            return;
+
         DegradeBounceForce();
         Bounce();
 
