@@ -24,6 +24,10 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private PlayToGameOverTransitionState playToGameOverTransitionState;
 
+    [SerializeField]
+    [Tooltip("How many rounds of gameplay there are before the game ends.")]
+    private int rounds = 10;
+
     /// <summary>
     /// The 'Menu' gamestate.
     /// </summary>
@@ -38,6 +42,16 @@ public class GameManager : MonoBehaviour
     /// The current active <see cref="GameState"/>.
     /// </summary>
     public GameState CurrentState { get; private set; }
+
+    /// <summary>
+    /// The current round of gameplay.
+    /// </summary>
+    public int CurrentRound { get; private set; } = 0;
+
+    /// <summary>
+    /// Number of rounds of gameplay before the game ends.
+    /// </summary>
+    public int TotalRounds => rounds;
 
     private InputHandler _inputHandler;
     private InputHandler InputHandler
@@ -101,6 +115,8 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         ChangeState(menuState);
+
+        playState.Exited += OnPlayStateExited;
     }
 
     private void Update()
@@ -111,12 +127,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ChangeState(GameState state)
+    private void ChangeState(GameState state)
     {
         if (CurrentState != null)
             CurrentState.enabled = false;
 
         CurrentState = state;
         CurrentState.enabled = true;
+    }
+
+    private void OnPlayStateExited()
+    {
+        CurrentRound++;
     }
 }

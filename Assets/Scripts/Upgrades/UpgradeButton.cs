@@ -18,7 +18,7 @@ public class UpgradeButton : MonoBehaviour
     /// <summary>
     /// Event raised whenever the upgrade stored in this button is purchased.
     /// </summary>
-    public event UpgradePurchasedEvent Purchased;
+    public static event UpgradePurchasedEvent Purchased;
 
     [Header("References")]
     [SerializeField]
@@ -65,12 +65,17 @@ public class UpgradeButton : MonoBehaviour
     {
         button.onClick.AddListener(Purchase);
         points.Changed += OnPointsValueChanged;
+
+        Purchased -= OnAnyUpgradePurchased;
+
     }
 
     private void OnDisable()
     {
         button.onClick.RemoveListener(Purchase);
         points.Changed -= OnPointsValueChanged;
+
+        Purchased += OnAnyUpgradePurchased;
     }
 
     /// <summary>
@@ -82,11 +87,16 @@ public class UpgradeButton : MonoBehaviour
             return;
 
         storedUpgrade = upgrade;
-        costText.text = $"{upgrade.Cost}";
-        icon.sprite = upgrade.Icon;
-        background.color = upgrade.Rarity.Color;
+        RefreshDisplay();
 
         CheckEnabledState();
+    }
+
+    private void RefreshDisplay()
+    {
+        costText.text = $"{storedUpgrade.Cost}";
+        icon.sprite = storedUpgrade.Icon;
+        background.color = storedUpgrade.Rarity.Color;
     }
 
     private void Purchase()
@@ -113,5 +123,10 @@ public class UpgradeButton : MonoBehaviour
     private void OnPointsValueChanged(float value)
     {
         CheckEnabledState();
+    }
+
+    private void OnAnyUpgradePurchased(UpgradeButton button, ShopUpgrade upgrade)
+    {
+        RefreshDisplay();
     }
 }

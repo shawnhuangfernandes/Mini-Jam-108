@@ -56,7 +56,6 @@ public abstract class GameState : MonoBehaviour
         if (!UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode)
             return;
 #endif
-
         OnStateExit();
 
         Exited?.Invoke();
