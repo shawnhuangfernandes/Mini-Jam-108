@@ -34,7 +34,8 @@ public class EnvironmentVisuals : MonoBehaviour
     [SerializeField] float MinSpawnDuration = 2F;
     [SerializeField] float MaxSpawnDuration = 4F;
     [SerializeField] int MinObjectsSpawned = 3;
-    [SerializeField] int MaxObjectsSpawned = 7;
+    [SerializeField] int MaxObjectsSpawned = 35;
+    [SerializeField] float SpawnDistanceThreshold;
     
 
     private float Timer;
@@ -88,7 +89,7 @@ public class EnvironmentVisuals : MonoBehaviour
 
     public void SpawnFloaters()
     {
-        for (int i = 0; i < UnityEngine.Random.Range(MinObjectsSpawned, MaxObjectsSpawned); i++)
+        for (int i = 0; i < (int) Mathf.Lerp(MinObjectsSpawned, MaxObjectsSpawned, PlayerProperty.Distance.Value/SpawnDistanceThreshold); i++)
         {
             SpawnFloater();
         }
