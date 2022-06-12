@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using JC.Audio2D;
 
 /// <summary>
 /// Behavior that drives an upgrade button for the shop system.
@@ -37,6 +38,10 @@ public class UpgradeButton : MonoBehaviour
     [SerializeField]
     [Tooltip("Color of the text when the player cannot afford the upgrade.")]
     private Color unaffordableTextColor = Color.red;
+
+    [SerializeField]
+    [Tooltip("Sound played when upgrade is purchased")]
+    private SoundEffect PurchaseSoundEffect;
 
     [SerializeField]
     private Button button;
@@ -110,6 +115,8 @@ public class UpgradeButton : MonoBehaviour
 
         isFrozen = false;
         Purchased?.Invoke(this, storedUpgrade);
+
+        PurchaseSoundEffect.Play();
     }
 
     private void CheckEnabledState()
