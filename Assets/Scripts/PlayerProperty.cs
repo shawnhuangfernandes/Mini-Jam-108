@@ -50,6 +50,18 @@ public class PlayerProperty : ScriptableObject
         }
     }
 
+    private static PlayerProperty _rounds;
+    public static PlayerProperty Rounds
+    {
+        get
+        {
+            if (_rounds == null)
+                _rounds = Resources.Load<PlayerProperty>("Stats/Rounds");
+
+            return _rounds;
+        }
+    }
+
     /// <summary>
     /// The value of the property
     /// </summary>
