@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9fe29b46d8e89f459389985fd9930ea, type: 3}
   m_Name: FasterSpeed
   m_EditorClassIdentifier: 
-  baseCost: 15
+  Name: Speedier!
+  Description: Cover distance even faster
+  baseCost: 35
   rarity: {fileID: 11400000, guid: bf20eb9d2da9a8a44b60b94300b360eb, type: 2}
   icon: {fileID: 21300000, guid: a92527fea0d8a554aae6ea9405d9911c, type: 3}
   upgrades:

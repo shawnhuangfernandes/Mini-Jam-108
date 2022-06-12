@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9fe29b46d8e89f459389985fd9930ea, type: 3}
   m_Name: Discount
   m_EditorClassIdentifier: 
-  baseCost: 15
+  Name: Discount!
+  Description: All shop prices are 15% cheaper
+  baseCost: 60
   rarity: {fileID: 11400000, guid: c6bf507c6da3e7046a75c7eda3fce558, type: 2}
   icon: {fileID: 21300000, guid: 68a3b47c10729ce4a85ae932fcc3431b, type: 3}
   upgrades:
