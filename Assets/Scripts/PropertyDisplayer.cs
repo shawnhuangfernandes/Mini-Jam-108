@@ -20,6 +20,14 @@ public class PropertyDisplayer : MonoBehaviour
     [SerializeField]
     private PlayerProperty Property;
 
+    [SerializeField]
+    [Tooltip("Text to show before the property value.")]
+    private string prefix = string.Empty;
+
+    [SerializeField]
+    [Tooltip("Text to show after the property value.")]
+    private string suffix = string.Empty;
+
     private void OnValidate()
     {
         ValueDisplay ??= GetComponent<TextMeshProUGUI>();
@@ -38,6 +46,6 @@ public class PropertyDisplayer : MonoBehaviour
 
     public void UpdateDisplay(float _value)
     {
-        ValueDisplay.text = $"{Mathf.FloorToInt(_value)}";
+        ValueDisplay.text = $"{prefix}{Mathf.FloorToInt(_value)}{suffix}";
     }
 }

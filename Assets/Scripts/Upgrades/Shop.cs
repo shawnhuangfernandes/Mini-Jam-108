@@ -38,11 +38,16 @@ public class Shop : MonoBehaviour
         upgradeButtons = FindObjectsOfType<UpgradeButton>(includeInactive: true);
 
         gameManager.MenuState.Entered += OnMenuGameStateEntered;
+    }
 
-        foreach (var button in upgradeButtons)
-        {
-            button.Purchased += OnAnyUpgradePurchased;
-        }
+    private void OnEnable()
+    {
+        UpgradeButton.Purchased += OnAnyUpgradePurchased;
+    }
+
+    private void OnDisable()
+    {
+        UpgradeButton.Purchased -= OnAnyUpgradePurchased;
     }
 
     /// <summary>
