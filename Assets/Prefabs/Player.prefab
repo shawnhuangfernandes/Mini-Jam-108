@@ -59,9 +59,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7df4141df6e3b1409cc3b7d66d18d20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundLevel: -0.2
+  groundLevel: -0.5
   ThresholdSize:
-    _baseValue: 0.5
+    _baseValue: 0.75
   StartHeight:
     _baseValue: 8
   BounceDegradationMultiplier:
