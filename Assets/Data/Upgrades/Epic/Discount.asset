@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseCost: 15
   rarity: {fileID: 11400000, guid: c6bf507c6da3e7046a75c7eda3fce558, type: 2}
-  icon: {fileID: 21300000, guid: 5a26551018f8df24b923b9ee0f814c6c, type: 3}
+  icon: {fileID: 21300000, guid: 68a3b47c10729ce4a85ae932fcc3431b, type: 3}
   upgrades:
   - affectedStat: 7
     modifier:
