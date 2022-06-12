@@ -124,6 +124,7 @@ public class GameManager : MonoBehaviour
         menuState.Exited += OnMenuStateExited;
         gameOverState.Entered += OnGameOverStateEntered;
 
+        CurrentRound = 0;
         ChangeState(menuState);
     }
 
