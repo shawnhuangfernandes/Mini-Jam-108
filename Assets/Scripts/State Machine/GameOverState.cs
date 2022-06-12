@@ -41,7 +41,7 @@ public class GameOverState : GameState
 
     protected override void OnStateEnter()
     {
-        PlayerProperty.Points.Value = PlayerProperty.Distance.Value * PointsPerDistance + PlayerProperty.Skips.Value * PointsPerSkip;
+        PlayerProperty.Points.Value += PlayerProperty.Distance.Value * PointsPerDistance + PlayerProperty.Skips.Value * PointsPerSkip;
         PlayerProperty.TotalPoints.Value += PlayerProperty.Points.Value;
 
         gameOverUI.SetActive(true);
