@@ -62,6 +62,11 @@ public class EnvironmentVisuals : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        CurrentSpawnTime = UnityEngine.Random.Range(MinSpawnDuration, MaxSpawnDuration);
+    }
+
     private void Update()
     {
         if (gm.CurrentState == gm.PlayState)
@@ -70,8 +75,12 @@ public class EnvironmentVisuals : MonoBehaviour
 
             if (Timer > CurrentSpawnTime)
             {
+
                 SpawnFloater();
                 Timer = 0F;
+                CurrentSpawnTime = UnityEngine.Random.Range(MinSpawnDuration, MaxSpawnDuration);
+
+                Debug.Log("Spawned " + CurrentSpawnTime);
             }
         }
     }
@@ -98,7 +107,34 @@ public class EnvironmentVisuals : MonoBehaviour
 
         Vector3 spawnPosition = new Vector3(playerPos.x + xPos, 0F, playerPos.z + zPos);
 
-        
+        ObjectPool selectedPool = GetPoolFromThreshold(PlayerProperty.Distance.Value);
+
+        if (selectedPool != null)
+        {
+            selectedPool.SpawnObject(spawnPosition);
+        }
+    }
+
+    public ObjectPool GetPoolFromThreshold(float _threshold)
+    {
+        List<ObjectPool> Pools = new List<ObjectPool>();
+
+        foreach(ObjectPool pool in FloatingObjects)
+        {
+            if (pool.DistanceThreshold >= _threshold)
+            {
+                Pools.Add(pool);
+            }
+        }
+
+        if (Pools.Count > 0)
+        {
+            return Pools[UnityEngine.Random.Range(0, Pools.Count - 1)];
+        }
+        else
+        {
+            return null;
+        }
     }
 
     public void SetScrollSpeed(Stat _speed)
@@ -118,7 +154,8 @@ public class ObjectPool
 {
     [Header("Pool Data")]
     [SerializeField] private string PoolName;
-    [SerializeField] private float DistanceThreshold;
+    public float DistanceThreshold;
+
     [SerializeField] private Transform PoolContainer;
     [SerializeField] private PooledObject Prefab;
     [SerializeField] private float SpawnHeight;
