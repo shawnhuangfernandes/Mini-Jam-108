@@ -832,7 +832,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7808219, y: 1}
+    m_SensorSize: {x: 1.7791045, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1790,6 +1790,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 11400000, guid: 34e53349294eb31418299f3c459d2df3, type: 2}
   - {fileID: 0}
+  - {fileID: 11400000, guid: 21f6f6f213e06dd4abf5c6b44d13c79e, type: 2}
+  - {fileID: 11400000, guid: 0abbcbd97a4c25b49aa5e856aac12d76, type: 2}
+  - {fileID: 11400000, guid: f4743d8d69b2eea42b41f4bdfbf970c8, type: 2}
+  - {fileID: 11400000, guid: 80c5405a3412b5348bc8bc5bdb06231b, type: 2}
+  - {fileID: 11400000, guid: a1998a76eb577c94690aab7a7c249492, type: 2}
+  - {fileID: 11400000, guid: b19f8762bd441174896f9e053a941a4d, type: 2}
 --- !u!1 &665517685
 GameObject:
   m_ObjectHideFlags: 0
@@ -2569,7 +2575,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7808219, y: 1}
+    m_SensorSize: {x: 1.7791045, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2683,7 +2689,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7808219, y: 1}
+    m_SensorSize: {x: 1.7791045, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4086,7 +4092,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 363193908590466798, guid: a55db21169d37084097d7606588b0b84, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 73.04
       objectReference: {fileID: 0}
     - target: {fileID: 363193908590466798, guid: a55db21169d37084097d7606588b0b84, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4106,7 +4112,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 363193908929466707, guid: a55db21169d37084097d7606588b0b84, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 174.065
       objectReference: {fileID: 0}
     - target: {fileID: 363193908929466707, guid: a55db21169d37084097d7606588b0b84, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4126,7 +4132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 363193909899526551, guid: a55db21169d37084097d7606588b0b84, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 265.73502
       objectReference: {fileID: 0}
     - target: {fileID: 363193909899526551, guid: a55db21169d37084097d7606588b0b84, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4332,7 +4338,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 178585214955823020, guid: 4124a1a80a57bd94ca0925a2a4c664ab, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 259.04498
       objectReference: {fileID: 0}
     - target: {fileID: 178585214955823020, guid: 4124a1a80a57bd94ca0925a2a4c664ab, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4420,7 +4426,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1691505467164723701, guid: 4124a1a80a57bd94ca0925a2a4c664ab, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 259.04498
       objectReference: {fileID: 0}
     - target: {fileID: 1691505467164723701, guid: 4124a1a80a57bd94ca0925a2a4c664ab, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4444,7 +4450,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2624096519746232670, guid: 4124a1a80a57bd94ca0925a2a4c664ab, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 215
       objectReference: {fileID: 0}
     - target: {fileID: 2624096519746232670, guid: 4124a1a80a57bd94ca0925a2a4c664ab, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4476,7 +4482,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2624096520198338374, guid: 4124a1a80a57bd94ca0925a2a4c664ab, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 215
       objectReference: {fileID: 0}
     - target: {fileID: 2624096520198338374, guid: 4124a1a80a57bd94ca0925a2a4c664ab, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4508,7 +4514,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2624096520215122321, guid: 4124a1a80a57bd94ca0925a2a4c664ab, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 215
       objectReference: {fileID: 0}
     - target: {fileID: 2624096520215122321, guid: 4124a1a80a57bd94ca0925a2a4c664ab, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -5127,9 +5133,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 137284934}
     - target: {fileID: 7950955651236817654, guid: 4fde485c1d75e674e975ddc1817a9cc3, type: 3}
+      propertyPath: PointsPerSkip
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7950955651236817654, guid: 4fde485c1d75e674e975ddc1817a9cc3, type: 3}
       propertyPath: gameOverCamera
       value: 
       objectReference: {fileID: 249544774}
+    - target: {fileID: 7950955651236817654, guid: 4fde485c1d75e674e975ddc1817a9cc3, type: 3}
+      propertyPath: PointsPerDistance
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 7950955651236817655, guid: 4fde485c1d75e674e975ddc1817a9cc3, type: 3}
       propertyPath: playmodeUI
       value: 

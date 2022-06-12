@@ -17,6 +17,16 @@ public class GameOverState : GameState
     [Tooltip("The UI display on game end.")]
     private GameObject gameOverUI;
 
+
+    [SerializeField]
+    [Tooltip("The points scored per distance traveled")]
+    private float PointsPerDistance;
+
+
+    [SerializeField]
+    [Tooltip("The points scored per successful skip.")]
+    private float PointsPerSkip;
+
     private RockController _player;
     private RockController player
     {
@@ -31,7 +41,7 @@ public class GameOverState : GameState
 
     protected override void OnStateEnter()
     {
-        PlayerProperty.Points.Value = PlayerProperty.Distance.Value + PlayerProperty.Skips.Value;
+        PlayerProperty.Points.Value = PlayerProperty.Distance.Value * PointsPerDistance + PlayerProperty.Skips.Value * PointsPerSkip;
         PlayerProperty.TotalPoints.Value += PlayerProperty.Points.Value;
 
         gameOverUI.SetActive(true);
