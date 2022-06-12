@@ -62,6 +62,66 @@ public class PlayerProperty : ScriptableObject
         }
     }
 
+    private static PlayerProperty _bestDistance;
+    public static PlayerProperty BestDistance
+    {
+        get
+        {
+            if (_bestDistance == null)
+                _bestDistance = Resources.Load<PlayerProperty>("Stats/BestDistance");
+
+            return _bestDistance;
+        }
+    }
+
+    private static PlayerProperty _totalDistance;
+    public static PlayerProperty TotalDistance
+    {
+        get
+        {
+            if (_totalDistance == null)
+                _totalDistance = Resources.Load<PlayerProperty>("Stats/TotalDistance");
+
+            return _totalDistance;
+        }
+    }
+
+    private static PlayerProperty _totalPoints;
+    public static PlayerProperty TotalPoints
+    {
+        get
+        {
+            if (_totalPoints == null)
+                _totalPoints = Resources.Load<PlayerProperty>("Stats/TotalPoints");
+
+            return _totalPoints;
+        }
+    }
+
+    private static PlayerProperty _totalSkips;
+    public static PlayerProperty TotalSkips
+    {
+        get
+        {
+            if (_totalSkips == null)
+                _totalSkips = Resources.Load<PlayerProperty>("Stats/TotalSkips");
+
+            return _totalSkips;
+        }
+    }
+
+    private static PlayerProperty _upgradesBought;
+    public static PlayerProperty UpgradesBought
+    {
+        get
+        {
+            if (_upgradesBought == null)
+                _upgradesBought = Resources.Load<PlayerProperty>("Stats/UpgradesBought");
+
+            return _upgradesBought;
+        }
+    }
+
     /// <summary>
     /// The value of the property
     /// </summary>
