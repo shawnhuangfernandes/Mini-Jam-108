@@ -66,7 +66,6 @@ public class PlayState : GameState
 
         environmentVisuals.SetScrollSpeed(player.LateralSpeed);
 
-
         StartOneShot.Play();
         StartCoroutine(DelayedTrack());
     }
@@ -83,7 +82,7 @@ public class PlayState : GameState
 
         environmentVisuals.SetScrollSpeed(0F);
 
-        AudioManager.Instance.FadeOutSoundtrack(GameTrack);
+        GameTrack.Stop();
 
         if (PlayerProperty.Distance > PlayerProperty.BestDistance)
             PlayerProperty.BestDistance.Value = PlayerProperty.Distance.Value;
@@ -91,7 +90,7 @@ public class PlayState : GameState
         PlayerProperty.TotalDistance.Value += PlayerProperty.Distance;
         PlayerProperty.TotalSkips.Value += PlayerProperty.Skips;
         
-        AudioManager.Instance.FadeOutSoundtrack(GameTrack);
+        GameTrack.Stop();
     }
 
     IEnumerator DelayedTrack()

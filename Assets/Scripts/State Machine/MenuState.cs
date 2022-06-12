@@ -81,7 +81,7 @@ public class MenuState : GameState
         menuUI.SetActive(false);
         menuCamera.m_Priority = 0;
 
-        AudioManager.Instance.FadeOutSoundtrack(MenuTrack);
+        MenuTrack.Stop();
     }
 
     private static void ResetPlayerProperties()
@@ -99,5 +99,7 @@ public class MenuState : GameState
     {
         yield return new WaitForSeconds(TrackDelay);
         MenuTrack.Play();
+
+
     }
 }
