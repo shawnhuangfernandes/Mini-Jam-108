@@ -1,8 +1,10 @@
 // Author:  Shawn Huang Fernandes
 // Date:    06/10/22
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -20,6 +22,13 @@ public class EnvironmentVisuals : MonoBehaviour
 
     [Header("Text Effects")]
     [SerializeField] private float TextHeight;
+
+    [Header("Floating Objects")]
+    [SerializeField] List<ObjectPool> FloatingObjects = new List<ObjectPool>();
+    [SerializeField] float MinZDistance = 15F;
+    [SerializeField] float MaxZDistance = 35F;
+    [SerializeField] float MinXDistance = 4F;
+    [SerializeField] float MaxXDistance = 25F;
 
     private RockController _player;
     private RockController player
@@ -47,6 +56,18 @@ public class EnvironmentVisuals : MonoBehaviour
         textGO.transform.localPosition = new Vector3(0F, TextHeight, 0F);
     }
 
+    public void SpawnFloater()
+    {
+        float xPos = UnityEngine.Random.Range(MinXDistance, MaxXDistance);
+        float zPos = UnityEngine.Random.Range(MinZDistance, MaxZDistance);
+        Vector3 playerPos = player.transform.position;
+
+        Vector3 spawnPosition = new Vector3(playerPos.x + xPos, 0F, playerPos.z + zPos);
+
+        // TEST
+        FloatingObjects[0].SpawnObject(spawnPosition);
+    }
+
     public void SetScrollSpeed(Stat _speed)
     {
         WaterShifter.SetSpeed(_speed);
@@ -56,5 +77,53 @@ public class EnvironmentVisuals : MonoBehaviour
     public void SetScrollSpeed(float _speed)
     {
         SetScrollSpeed(new Stat(_speed));
+    }
+}
+
+[Serializable]
+public class ObjectPool
+{
+    [Header("Pool Data")]
+    [SerializeField] private string PoolName;
+    [SerializeField] private Transform PoolContainer;
+    [SerializeField] private PooledObject Prefab;
+    [SerializeField] private float SpawnHeight;
+    [SerializeField] private int MaxCount = 10;
+
+    private List<PooledObject> Unavailable = new List<PooledObject>();
+    private List<PooledObject> Available = new List<PooledObject>();
+
+    public void SpawnObject(Vector3 _position)
+    {
+        if (Available.Count > 0)
+        {
+            PooledObject selected = Available.First();
+            Available.Remove(selected);
+
+            Unavailable.Add(selected);
+            selected.transform.position = _position;
+            selected.gameObject.SetActive(true);
+        }
+        else
+        {
+            if (Unavailable.Count >= MaxCount)
+            {
+                Debug.LogWarning($"Reached Max Limit for {Prefab} pool.");
+                return;
+            }
+            else if (Unavailable.Count < MaxCount)
+            {
+                PooledObject selected = GameObject.Instantiate(Prefab.gameObject, PoolContainer.transform).GetComponent<PooledObject>();
+                selected.Pool = this;
+                Unavailable.Add(selected);
+                selected.transform.position = _position;
+            }
+        }
+    }
+
+    public void SetAvailable(PooledObject _pooledObject)
+    {
+        Available.Add(_pooledObject);
+        Unavailable.Remove(_pooledObject);
     }
 }

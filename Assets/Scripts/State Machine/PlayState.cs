@@ -76,6 +76,8 @@ public class PlayState : GameState
     protected override void OnStateUpdate()
     {
         PlayerProperty.Distance.Add(player.LateralSpeed * Time.deltaTime);
+
+
     }
 
     protected override void OnStateExit()
