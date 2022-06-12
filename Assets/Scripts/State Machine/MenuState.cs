@@ -60,8 +60,7 @@ public class MenuState : GameState
 
     protected override void OnInitialize()
     {
-        PlayerProperty.Distance.Value = 0;
-        PlayerProperty.Points.Value = 0;
+        ResetPlayerProperties();
     }
 
     protected override void OnStateEnter()
@@ -83,6 +82,17 @@ public class MenuState : GameState
         menuCamera.m_Priority = 0;
 
         AudioManager.Instance.FadeOutSoundtrack(MenuTrack);
+    }
+
+    private static void ResetPlayerProperties()
+    {
+        PlayerProperty.TotalPoints.Value = 0;
+        PlayerProperty.TotalSkips.Value = 0;
+        PlayerProperty.TotalDistance.Value = 0;
+        PlayerProperty.UpgradesBought.Value = 0;
+        PlayerProperty.TotalDistance.Value = 0;
+        PlayerProperty.Distance.Value = 0;
+        PlayerProperty.Points.Value = 0;
     }
 
     IEnumerator DelayedTrack()
