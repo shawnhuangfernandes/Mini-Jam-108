@@ -18,6 +18,9 @@ public class EnvironmentVisuals : MonoBehaviour
     [Header("Splash Effects")]
     [SerializeField] private float SplashHeight;
 
+    [Header("Text Effects")]
+    [SerializeField] private float TextHeight;
+
     private RockController _player;
     private RockController player
     {
@@ -35,6 +38,13 @@ public class EnvironmentVisuals : MonoBehaviour
         Transform rockXFRM = player.transform;
         Vector3 spawnPosition = new Vector3(rockXFRM.position.x, SplashHeight, rockXFRM.position.z);
         ParticleSystem splash = Instantiate(_splashPrefab, spawnPosition, Quaternion.identity).GetComponent<ParticleSystem>();
+    }
+
+    public void SpawnText(GameObject _textPrefab)
+    {
+        Transform rockXFRM = player.transform;
+        GameObject textGO = Instantiate(_textPrefab, rockXFRM);
+        textGO.transform.localPosition = new Vector3(0F, TextHeight, 0F);
     }
 
     public void SetScrollSpeed(Stat _speed)

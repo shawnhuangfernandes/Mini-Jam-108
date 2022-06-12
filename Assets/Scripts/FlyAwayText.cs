@@ -40,11 +40,14 @@ public class FlyAwayText : MonoBehaviour
 
     public void Start()
     {
-        _tmp.DOFade(1, FadeInDuration)
+        tmp.DOFade(1, FadeInDuration)
             .SetEase(Ease.InQuad);
 
+        transform.DOScale(1, FadeInDuration)
+            .SetEase(Ease.InOutBack);
+
         transform.DOMove(transform.position + LocalDisplacement, DisplacementDuration)
-            .SetEase(Ease.InBounce)
+            .SetEase(Ease.InOutBack)
             .OnComplete(() => Destroy(gameObject));
     }
 }
