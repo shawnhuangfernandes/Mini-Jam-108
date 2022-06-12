@@ -16,6 +16,7 @@ public class EnvironmentVisuals : MonoBehaviour
     [Header("Water Materials")]
     [SerializeField] private TextureShifter WaterShifter;
     [SerializeField] private TextureShifter SandShifter;
+    [SerializeField] private float ScrollSpeedModifier;
 
     [Header("Splash Effects")]
     [SerializeField] private float SplashHeight;
