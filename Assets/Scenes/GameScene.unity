@@ -306,7 +306,7 @@ MonoBehaviour:
   PointsTMP: {fileID: 1052590465}
   StartOneShot: {fileID: 11400000, guid: a8f9c9c253f88dc49b384c4875aaf8ec, type: 2}
   MenuTrack: {fileID: 11400000, guid: cdf409115f3e26d4886bfce5a2f2e967, type: 2}
-  TrackDelay: 0.78
+  TrackDelay: 0.9
 --- !u!114 &95184587
 MonoBehaviour:
   m_ObjectHideFlags: 0
