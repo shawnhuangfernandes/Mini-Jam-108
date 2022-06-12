@@ -66,6 +66,8 @@ namespace JC.Audio2D
 
             var source = GetOrAddAudioSource(entry);
             source.Play();
+
+            Debug.Log($"Audio entry '{entry.name}' played");
         }
 
         /// <summary>
