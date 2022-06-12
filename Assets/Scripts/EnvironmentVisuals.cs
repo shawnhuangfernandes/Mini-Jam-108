@@ -121,7 +121,7 @@ public class EnvironmentVisuals : MonoBehaviour
 
         foreach(ObjectPool pool in FloatingObjects)
         {
-            if (pool.DistanceThreshold >= _threshold)
+            if (pool.DistanceThreshold <= _threshold)
             {
                 Pools.Add(pool);
             }
