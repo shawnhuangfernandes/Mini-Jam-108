@@ -157,7 +157,7 @@ public class GameManager : MonoBehaviour
 
     private void OnRoundFinished()
     {
-        if (CurrentRound == 10)
+        if (CurrentRound == rounds)
         {
             HandleLastRoundFinished();
             return;
