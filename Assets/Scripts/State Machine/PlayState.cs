@@ -60,6 +60,11 @@ public class PlayState : GameState
 
     protected override void OnStateEnter()
     {
+        if (PlayerProperty.Distance > PlayerProperty.BestDistance)
+            PlayerProperty.BestDistance.Value = PlayerProperty.Distance.Value;
+
+        PlayerProperty.TotalDistance.Value += PlayerProperty.Distance;
+
         PlayerProperty.Distance.Value = 0;
         PlayerProperty.Skips.Value = 0;
 
@@ -69,7 +74,6 @@ public class PlayState : GameState
         playmodeCamera.m_Priority = 1;
 
         environmentVisuals.SetScrollSpeed(player.LateralSpeed);
-
 
         StartOneShot.Play();
         StartCoroutine(DelayedTrack());
