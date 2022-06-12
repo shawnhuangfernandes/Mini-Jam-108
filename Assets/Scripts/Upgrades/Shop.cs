@@ -14,5 +14,5 @@ public class Shop : MonoBehaviour
     public Stat UpgradeCostMultiplier = new Stat(1f);
 
     [SerializeField]
-    private List<Upgrade> upgrades = new List<Upgrade>();
+    private List<ShopUpgrade> upgrades = new List<ShopUpgrade>();
 }
