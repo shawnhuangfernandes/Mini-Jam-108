@@ -10,8 +10,10 @@ using UnityEngine.UI;
 /// <summary>
 /// Behavior that drives an upgrade button for the shop system.
 /// </summary>
+[RequireComponent(typeof(Button))]
 public class UpgradeButton : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField]
     private Image icon;
 
@@ -20,6 +22,14 @@ public class UpgradeButton : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI costText;
+
+    [SerializeField]
+    private Button button;
+
+    private void OnValidate()
+    {
+        button ??= GetComponent<Button>();
+    }
 
     /// <summary>
     /// Set the upgrade registered by this button.

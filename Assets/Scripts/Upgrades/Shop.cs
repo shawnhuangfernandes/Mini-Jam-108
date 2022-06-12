@@ -16,9 +16,13 @@ public class Shop : MonoBehaviour
     [SerializeField]
     private List<ShopUpgrade> upgrades = new List<ShopUpgrade>();
 
+    private UpgradeButton[] upgradeButtons;
+
     private void Start()
     {
         DeleteNullReferences();
+
+        upgradeButtons = FindObjectsOfType<UpgradeButton>();
     }
 
     /// <summary>
