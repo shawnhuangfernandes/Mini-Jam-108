@@ -51,10 +51,6 @@ public class PlayState : GameState
     [Tooltip("Main Menu Soundtrack")]
     private Soundtrack GameTrack;
 
-    [SerializeField]
-    [Tooltip("Main Menu Music Start Delay")]
-    private float MusicStartDelay;
-
     protected override void OnStateEnter()
     {
         PlayerProperty.Distance.Value = 0;
@@ -69,8 +65,7 @@ public class PlayState : GameState
 
 
         StartOneShot.Play();
-        StartCoroutine(PlayDelayedStartCR());
-        
+        GameTrack.Play();
     }
 
     protected override void OnStateUpdate()
@@ -86,11 +81,5 @@ public class PlayState : GameState
         environmentVisuals.SetScrollSpeed(0F);
 
         GameTrack.Stop();
-    }
-
-    IEnumerator PlayDelayedStartCR()
-    {
-        yield return new WaitForSeconds(MusicStartDelay);
-        GameTrack.Play();
     }
 }
