@@ -54,8 +54,6 @@ public class PlayState : GameState
     [SerializeField]
     private float TrackDelay;
 
-    private float Timer;
-
     protected override void OnStateEnter()
     {
         PlayerProperty.Distance.Value = 0;
@@ -68,6 +66,7 @@ public class PlayState : GameState
 
         environmentVisuals.SetScrollSpeed(player.LateralSpeed);
 
+
         StartOneShot.Play();
         StartCoroutine(DelayedTrack());
     }
@@ -75,14 +74,6 @@ public class PlayState : GameState
     protected override void OnStateUpdate()
     {
         PlayerProperty.Distance.Add(player.LateralSpeed * Time.deltaTime);
-
-        Timer += Time.deltaTime;
-
-        if (Timer > 2F)
-        {
-            environmentVisuals.SpawnFloater();
-            Timer =0F;
-        }
     }
 
     protected override void OnStateExit()
@@ -99,6 +90,8 @@ public class PlayState : GameState
 
         PlayerProperty.TotalDistance.Value += PlayerProperty.Distance;
         PlayerProperty.TotalSkips.Value += PlayerProperty.Skips;
+        
+        AudioManager.Instance.FadeOutSoundtrack(GameTrack);
     }
 
     IEnumerator DelayedTrack()
