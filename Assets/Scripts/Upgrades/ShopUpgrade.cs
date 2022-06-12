@@ -16,13 +16,27 @@ public class ShopUpgrade : ScriptableObject
     private int baseCost = 25;
 
     [SerializeField]
-    [Tooltip("How likely the upgrade is to appear.")]
-    private RarityType rarity = RarityType.Common;
+    [Tooltip("The rarity category of the upgrade.")]
+    private Rarity rarity;
+
+    [SerializeField]
+    [Tooltip("The icon displayed by this upgrade on the Upgrade button.")]
+    private Sprite icon;
 
     /// <summary>
     /// Total cost of the upgrade when multiplied by the global cost modifier.
     /// </summary>
     public int Cost => Mathf.FloorToInt(baseCost * StatDirectory.Get(StatType.UpgradeCostMultiplier));
+
+    /// <summary>
+    /// The icon displayed by this upgrade on the Upgrade button. 
+    /// </summary>
+    public Sprite Icon => icon;
+
+    /// <summary>
+    /// The rarity category of the upgrade.
+    /// </summary>
+    public Rarity Rarity => rarity;
 
     private List<Upgrade> upgrades = new List<Upgrade>();
 

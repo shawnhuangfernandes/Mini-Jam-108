@@ -3,6 +3,7 @@
 
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 /// <summary>
@@ -94,6 +95,9 @@ public class VirtualButton
 
     public virtual void OnInput(InputAction.CallbackContext context)
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
+
         if (context.performed)
         {
             wasPressed = true;

@@ -39,8 +39,10 @@ public abstract class GameState : MonoBehaviour
 
     private void OnDisable()
     {
-        if (!Application.isPlaying)
+#if UNITY_EDITOR
+        if (!UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode)
             return;
+#endif
 
         OnStateExit();
     }
