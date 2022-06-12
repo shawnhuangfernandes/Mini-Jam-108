@@ -19,6 +19,8 @@ public class PlayState : GameState
     [Tooltip("The UI display on during rock skipping.")]
     private GameObject playmodeUI;
 
+
+
     private RockController _player;
     private RockController player
     {
@@ -51,6 +53,9 @@ public class PlayState : GameState
     [Tooltip("Main Menu Soundtrack")]
     private Soundtrack GameTrack;
 
+    [SerializeField]
+    private float TrackDelay;
+
     protected override void OnStateEnter()
     {
         PlayerProperty.Distance.Value = 0;
@@ -65,7 +70,7 @@ public class PlayState : GameState
 
 
         StartOneShot.Play();
-        GameTrack.Play();
+        StartCoroutine(DelayedTrack());
     }
 
     protected override void OnStateUpdate()
@@ -81,5 +86,11 @@ public class PlayState : GameState
         environmentVisuals.SetScrollSpeed(0F);
 
         GameTrack.Stop();
+    }
+
+    IEnumerator DelayedTrack()
+    {
+        yield return new WaitForSeconds(TrackDelay);
+        GameTrack.Play();
     }
 }
