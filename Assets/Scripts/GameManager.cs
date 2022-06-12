@@ -25,6 +25,16 @@ public class GameManager : MonoBehaviour
     private PlayToGameOverTransitionState playToGameOverTransitionState;
 
     /// <summary>
+    /// The 'Menu' gamestate.
+    /// </summary>
+    public GameState MenuState => menuState;
+
+    /// <summary>
+    /// The 'Play' gamestate.
+    /// </summary>
+    public GameState PlayState => playState;
+
+    /// <summary>
     /// The current active <see cref="GameState"/>.
     /// </summary>
     public GameState CurrentState { get; private set; }

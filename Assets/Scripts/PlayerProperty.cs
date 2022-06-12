@@ -53,11 +53,9 @@ public class PlayerProperty : ScriptableObject
     /// <summary>
     /// The value of the property
     /// </summary>
-
     public float Value
     {
         get => _Value;
-        
         set
         {
             if (_Value == value)
@@ -76,5 +74,15 @@ public class PlayerProperty : ScriptableObject
     public void Add(float _value)
     {
         Value += _value;
+    }
+
+    public void Subtract(float _value)
+    {
+        Add(-_value);
+    }
+
+    public static implicit operator float(PlayerProperty property)
+    {
+        return property.Value;
     }
 }

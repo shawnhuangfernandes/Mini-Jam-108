@@ -1,6 +1,7 @@
 // Author:  Joseph Crump
 // Date:    06/10/22
 
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,16 @@ using UnityEngine;
 /// </summary>
 public abstract class GameState : MonoBehaviour
 {
+    /// <summary>
+    /// Event raised whenever the game state is entered.
+    /// </summary>
+    public event Action Entered;
+
+    /// <summary>
+    /// Event raised whenever the game stat is exited.
+    /// </summary>
+    public event Action Exited;
+
     /// <summary>
     /// Returns the number of seconds that this state has been active.
     /// </summary>
@@ -30,6 +41,8 @@ public abstract class GameState : MonoBehaviour
         timeStateEntered = Time.time;
 
         OnStateEnter();
+
+        Entered?.Invoke();
     }
 
     private void Update()
@@ -45,6 +58,8 @@ public abstract class GameState : MonoBehaviour
 #endif
 
         OnStateExit();
+
+        Exited?.Invoke();
     }
 
     public void AddTransition(Transition transition)
