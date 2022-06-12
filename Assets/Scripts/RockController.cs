@@ -17,25 +17,25 @@ public class RockController : MonoBehaviour
     private float groundLevel = 0f;
 
     [Tooltip("The distance above ground level that skip inputs are permitted.")]
-    public Stat ThresholdSize = 1f;
+    public Stat ThresholdSize = new Stat(1f);
 
     [Tooltip("How high above the ground the rock starts.")]
-    public Stat StartHeight = 8f;
+    public Stat StartHeight = new Stat(8f);
 
     [Tooltip("Multiplier applied to Bounce Force on every subsequent skip.")]
-    public Stat BounceDegradationMultiplier = 0.5f;
+    public Stat BounceDegradationMultiplier = new Stat(0.5f);
 
     [Tooltip("Multiplier applied to Bounce Force on missed skips.")]
-    public Stat FaultyDegradationMultiplier = 0.25f;
+    public Stat FaultyDegradationMultiplier = new Stat(0.25f);
 
     [Tooltip("How rapidly the object accelerates towards the ground.")]
-    public Stat Gravity = -9.8f;
+    public Stat Gravity = new Stat(-9.8f);
 
     [Tooltip("How long the player has to wait to skip again after a premature skip attempt.")]
-    public Stat PrematureSkipCooldown = .5f;
+    public Stat PrematureSkipCooldown = new Stat(.5f);
 
     [Tooltip("How far the player travels in one second")]
-    public Stat LateralSpeed = 1f;
+    public Stat LateralSpeed = new Stat(1f);
 
     [SerializeField]
     [Tooltip("When the bounce force drops below this value, the player can no longer skip.")]
@@ -102,7 +102,7 @@ public class RockController : MonoBehaviour
     /// </summary>
     public bool CanSkip { get; private set; } = true;
 
-    private Stat bounceForce = 8f;
+    private Stat bounceForce = new Stat(8f);
 
     private float position
     {
@@ -121,7 +121,7 @@ public class RockController : MonoBehaviour
     private void Start()
     {
         // initial bounce force based on starting height
-        bounceForce = position - groundLevel;
+        bounceForce = new Stat(position - groundLevel);
     }
 
     private void OnValidate()

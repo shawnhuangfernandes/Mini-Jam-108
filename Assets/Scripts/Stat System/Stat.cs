@@ -18,6 +18,16 @@ public class Stat
 
     private ModifierCollection modifiers = new ModifierCollection();
 
+    public Stat()
+    {
+        _baseValue = 0f;
+    }
+
+    public Stat(float baseValue)
+    {
+        _baseValue = baseValue;
+    }
+
     /// <summary>
     /// Add a modifier to the stat.
     /// </summary>
@@ -70,10 +80,5 @@ public class Stat
     public static implicit operator float(Stat stat)
     {
         return stat.Value;
-    }
-
-    public static implicit operator Stat(float value)
-    {
-        return new Stat { _baseValue = value };
     }
 }

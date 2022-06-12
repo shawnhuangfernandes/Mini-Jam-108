@@ -41,5 +41,10 @@ public class EnvironmentVisuals : MonoBehaviour
     {
         WaterShifter.SetSpeed(_speed);
         SandShifter.SetSpeed(_speed);
-    } 
+    }
+
+    public void SetScrollSpeed(float _speed)
+    {
+        SetScrollSpeed(new Stat(_speed));
+    }
 }

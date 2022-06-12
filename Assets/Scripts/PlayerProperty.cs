@@ -73,10 +73,8 @@ public class PlayerProperty : ScriptableObject
     public delegate void ValueChangeEvent(float _value);
     public event ValueChangeEvent Changed;
 
-    public void ChangeValue(float _value)
+    public void Add(float _value)
     {
         Value += _value;
     }
-
-
 }
