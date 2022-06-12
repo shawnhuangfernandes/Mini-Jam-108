@@ -24,7 +24,7 @@ public class FloatingObject : MonoBehaviour
     {
         transform.position -= Vector3.forward * player.LateralSpeed * Time.deltaTime;
 
-        if (transform.position.z < player.transform.position.z -+ DisableZThreshold)
+        if (transform.position.z < player.transform.position.z + DisableZThreshold)
             gameObject.SetActive(false);
     }
 }

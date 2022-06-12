@@ -33,6 +33,8 @@ public class EnvironmentVisuals : MonoBehaviour
 
     [SerializeField] float MinSpawnDuration = 2F;
     [SerializeField] float MaxSpawnDuration = 4F;
+    [SerializeField] int MinObjectsSpawned = 3;
+    [SerializeField] int MaxObjectsSpawned = 7;
     
 
     private float Timer;
@@ -75,13 +77,20 @@ public class EnvironmentVisuals : MonoBehaviour
 
             if (Timer > CurrentSpawnTime)
             {
-
-                SpawnFloater();
+                SpawnFloaters();
                 Timer = 0F;
                 CurrentSpawnTime = UnityEngine.Random.Range(MinSpawnDuration, MaxSpawnDuration);
 
                 Debug.Log("Spawned " + CurrentSpawnTime);
             }
+        }
+    }
+
+    public void SpawnFloaters()
+    {
+        for (int i = 0; i < UnityEngine.Random.Range(MinObjectsSpawned, MaxObjectsSpawned); i++)
+        {
+            SpawnFloater();
         }
     }
 
@@ -158,7 +167,6 @@ public class ObjectPool
 
     [SerializeField] private Transform PoolContainer;
     [SerializeField] private PooledObject Prefab;
-    [SerializeField] private float SpawnHeight;
     [SerializeField] private int MaxCount = 10;
 
     private List<PooledObject> Unavailable = new List<PooledObject>();
@@ -174,6 +182,7 @@ public class ObjectPool
             Unavailable.Add(selected);
             selected.transform.position = _position;
             selected.gameObject.SetActive(true);
+            selected.transform.rotation = Quaternion.Euler(0F, UnityEngine.Random.Range(0F, 360F), 0F);
         }
         else
         {
@@ -185,6 +194,7 @@ public class ObjectPool
             else if (Unavailable.Count < MaxCount)
             {
                 PooledObject selected = GameObject.Instantiate(Prefab.gameObject, PoolContainer.transform).GetComponent<PooledObject>();
+                selected.transform.rotation = Quaternion.Euler(0F, UnityEngine.Random.Range(0F, 360F), 0F);
                 selected.Pool = this;
                 Unavailable.Add(selected);
                 selected.transform.position = _position;

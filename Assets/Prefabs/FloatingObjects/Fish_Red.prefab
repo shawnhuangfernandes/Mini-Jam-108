@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 896560351136735403}
   m_Layer: 0
-  m_Name: Fish
+  m_Name: Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,6 +128,7 @@ GameObject:
   - component: {fileID: 8956596682651596792}
   - component: {fileID: -8721546177932798326}
   - component: {fileID: 4870511618827454567}
+  - component: {fileID: 4824970185387309272}
   m_Layer: 0
   m_Name: Fish_Red
   m_TagString: Untagged
@@ -164,9 +165,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Pool:
     PoolName: 
+    DistanceThreshold: 0
     PoolContainer: {fileID: 0}
     Prefab: {fileID: 0}
-    SpawnHeight: 0
     MaxCount: 10
 --- !u!114 &4870511618827454567
 MonoBehaviour:
@@ -181,6 +182,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DisableZThreshold: -4
+--- !u!95 &4824970185387309272
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2216663670934564999}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5dc98a284f8c80e45a6a0522631c443d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3185110354011938893
 GameObject:
   m_ObjectHideFlags: 0
