@@ -63,6 +63,18 @@ public class UpgradeButton : MonoBehaviour
         }
     }
 
+    private UpgradeDescription _description;
+    public UpgradeDescription description
+    {
+        get
+        {
+            if (_description == null)
+                _description = FindObjectOfType<UpgradeDescription>();
+
+            return _description;
+        }
+    }
+
     private void OnValidate()
     {
         button ??= GetComponent<Button>();
@@ -104,7 +116,7 @@ public class UpgradeButton : MonoBehaviour
     /// </summary>
     public void OnSelect()
     {
-
+        description.ShowUpgrade(storedUpgrade);
     }
 
     /// <summary>
@@ -112,7 +124,7 @@ public class UpgradeButton : MonoBehaviour
     /// </summary>
     public void OnDeselect()
     {
-
+        description.Hide();
     }
 
     private void RefreshDisplay()

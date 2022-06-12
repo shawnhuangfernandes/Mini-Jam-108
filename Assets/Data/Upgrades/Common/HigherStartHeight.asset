@@ -20,7 +20,7 @@ MonoBehaviour:
   upgrades:
   - affectedStat: 1
     modifier:
-      Value: 5
+      Value: 2
       Type: 0
       Order: 0
       Flags: 1
