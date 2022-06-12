@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 520984133913295377}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1.3}
   m_Children:
   - {fileID: 5023959050131606188}
   - {fileID: 3840767565274901982}
@@ -168,7 +168,6 @@ MonoBehaviour:
     DistanceThreshold: 0
     PoolContainer: {fileID: 0}
     Prefab: {fileID: 0}
-    SpawnHeight: 0
     MaxCount: 10
 --- !u!114 &4870511618827454567
 MonoBehaviour:
