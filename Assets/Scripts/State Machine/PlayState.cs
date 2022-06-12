@@ -55,7 +55,6 @@ public class PlayState : GameState
     {
         PlayerProperty.Distance.Value = 0;
         PlayerProperty.Skips.Value = 0;
-        PlayerProperty.Points.Value = 0;
 
         playmodeUI.SetActive(true);
         player.enabled = true;

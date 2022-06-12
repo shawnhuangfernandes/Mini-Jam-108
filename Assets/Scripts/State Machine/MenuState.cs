@@ -20,6 +20,10 @@ public class MenuState : GameState
     private GameObject menuUI;
 
     [SerializeField]
+    [Tooltip("The UI containing all the shop elements.")]
+    private GameObject shopUI;
+
+    [SerializeField]
     [Tooltip("TextMesh that displays the player's point total.")]
     private TextMeshProUGUI PointsTMP;
 
@@ -30,6 +34,18 @@ public class MenuState : GameState
     [SerializeField]
     [Tooltip("Main Menu Soundtrack")]
     private Soundtrack MenuTrack;
+
+    private GameManager _gameManager;
+    private GameManager gameManager
+    {
+        get
+        {
+            if (_gameManager == null)
+                _gameManager = FindObjectOfType<GameManager>();
+
+            return _gameManager;
+        }
+    }
 
     /// <summary>
     /// Number of points the player currently has.
@@ -44,10 +60,14 @@ public class MenuState : GameState
 
     protected override void OnStateEnter()
     {
-        menuUI.SetActive(true);
         menuCamera.m_Priority = 1;
         StartOneShot.Play();
         MenuTrack.Play();
+
+        menuUI.SetActive(true);
+
+        bool showShop = (gameManager.CurrentRound > 0);
+        shopUI.SetActive(showShop);
     }
 
     protected override void OnStateExit()

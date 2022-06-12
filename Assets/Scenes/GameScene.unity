@@ -252,6 +252,7 @@ MonoBehaviour:
   playState: {fileID: 95184585}
   gameOverState: {fileID: 95184584}
   playToGameOverTransitionState: {fileID: 95184588}
+  rounds: 10
 --- !u!114 &95184584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,6 +297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuCamera: {fileID: 1157696500}
   menuUI: {fileID: 677208889}
+  shopUI: {fileID: 437925069}
   PointsTMP: {fileID: 1052590465}
   StartOneShot: {fileID: 11400000, guid: a8f9c9c253f88dc49b384c4875aaf8ec, type: 2}
   MenuTrack: {fileID: 11400000, guid: cdf409115f3e26d4886bfce5a2f2e967, type: 2}
@@ -2174,6 +2176,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeCostMultiplier:
     _baseValue: 1
+  upgrades:
+  - {fileID: 11400000, guid: b19f8762bd441174896f9e053a941a4d, type: 2}
+  - {fileID: 11400000, guid: 21f6f6f213e06dd4abf5c6b44d13c79e, type: 2}
+  - {fileID: 11400000, guid: f4743d8d69b2eea42b41f4bdfbf970c8, type: 2}
+  - {fileID: 11400000, guid: a1998a76eb577c94690aab7a7c249492, type: 2}
+  - {fileID: 11400000, guid: 34e53349294eb31418299f3c459d2df3, type: 2}
+  - {fileID: 11400000, guid: 80c5405a3412b5348bc8bc5bdb06231b, type: 2}
 --- !u!1 &665517685
 GameObject:
   m_ObjectHideFlags: 0

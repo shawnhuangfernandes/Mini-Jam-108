@@ -35,7 +35,7 @@ public class Shop : MonoBehaviour
     {
         DeleteNullReferences();
 
-        upgradeButtons = FindObjectsOfType<UpgradeButton>();
+        upgradeButtons = FindObjectsOfType<UpgradeButton>(includeInactive: true);
 
         gameManager.MenuState.Entered += OnMenuGameStateEntered;
 
