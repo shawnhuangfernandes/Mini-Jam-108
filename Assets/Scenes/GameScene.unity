@@ -832,7 +832,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7773973, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -911,13 +911,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 376051012}
-  m_LocalRotation: {x: 0.8242075, y: -0.28801224, z: -0.054531183, w: 0.48451766}
+  m_LocalRotation: {x: 0.7912392, y: -0.25783426, z: -0.022557313, w: 0.55403364}
   m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 50.11, y: -144.876, z: -124.645}
+  m_LocalEulerAnglesHint: {x: 59.896, y: -140.151, z: -120.31}
 --- !u!108 &376051014
 Light:
   m_ObjectHideFlags: 0
@@ -2575,7 +2575,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7773973, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2689,7 +2689,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7773973, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4806,22 +4806,6 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6272663158344406592, guid: e0f1a3d754f13cc49a7df350c2c003ab, type: 3}
-      propertyPath: Gravity._baseValue
-      value: -4.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 6272663158344406592, guid: e0f1a3d754f13cc49a7df350c2c003ab, type: 3}
-      propertyPath: StartHeight._baseValue
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6272663158344406592, guid: e0f1a3d754f13cc49a7df350c2c003ab, type: 3}
-      propertyPath: LateralSpeed._baseValue
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6272663158344406592, guid: e0f1a3d754f13cc49a7df350c2c003ab, type: 3}
-      propertyPath: BounceDegradationMultiplier._baseValue
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6272663158344406592, guid: e0f1a3d754f13cc49a7df350c2c003ab, type: 3}
       propertyPath: onSink.m_PersistentCalls.m_Calls.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -5230,14 +5214,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 702490684}
     m_Modifications:
-    - target: {fileID: 9037745545337989584, guid: 8dc1eaba0ca7e9049bb6a10681a42253, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: fbaf53fc550ee5f4d9a2632601361afe, type: 2}
-    - target: {fileID: 9037745545337989584, guid: 8dc1eaba0ca7e9049bb6a10681a42253, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -8677671153464270228, guid: fbaf53fc550ee5f4d9a2632601361afe, type: 2}
     - target: {fileID: 9037745545462919912, guid: 8dc1eaba0ca7e9049bb6a10681a42253, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -5714,14 +5690,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -13.865
       objectReference: {fileID: 0}
-    - target: {fileID: 9037745546990898976, guid: 8dc1eaba0ca7e9049bb6a10681a42253, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: fbaf53fc550ee5f4d9a2632601361afe, type: 2}
-    - target: {fileID: 9037745546990898976, guid: 8dc1eaba0ca7e9049bb6a10681a42253, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -8677671153464270228, guid: fbaf53fc550ee5f4d9a2632601361afe, type: 2}
     - target: {fileID: 9037745547209815636, guid: 8dc1eaba0ca7e9049bb6a10681a42253, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
