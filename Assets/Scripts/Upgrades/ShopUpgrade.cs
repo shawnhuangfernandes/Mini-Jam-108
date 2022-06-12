@@ -11,6 +11,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Upgrade", menuName = "Shop/Upgrade")]
 public class ShopUpgrade : ScriptableObject
 {
+    [Tooltip("Display name of the upgrade.")]
+    public string Name = string.Empty;
+
+    [Tooltip("Displayed description for the upgrade.")]
+    public string Description = string.Empty;
+
     [SerializeField]
     [Tooltip("Base purchase cost of the upgrade")]
     private int baseCost = 25;
