@@ -5,6 +5,7 @@ using Cinemachine;
 using UnityEngine;
 using TMPro;
 using JC.Audio2D;
+using System.Collections;
 
 /// <summary>
 /// Gamestate for the main menu / upgrade segment.
@@ -35,6 +36,9 @@ public class MenuState : GameState
     [Tooltip("Main Menu Soundtrack")]
     private Soundtrack MenuTrack;
 
+    [SerializeField]
+    private float TrackDelay;
+
     private GameManager _gameManager;
     private GameManager gameManager
     {
@@ -64,12 +68,14 @@ public class MenuState : GameState
     {
         menuCamera.m_Priority = 1;
         StartOneShot.Play();
-        MenuTrack.Play();
+
 
         menuUI.SetActive(true);
 
         bool showShop = (gameManager.CurrentRound > 0);
         shopUI.SetActive(showShop);
+
+        StartCoroutine(DelayedTrack());
     }
 
     protected override void OnStateExit()
@@ -77,5 +83,11 @@ public class MenuState : GameState
         menuUI.SetActive(false);
         menuCamera.m_Priority = 0;
         MenuTrack.Stop();
+    }
+
+    IEnumerator DelayedTrack()
+    {
+        yield return new WaitForSeconds(TrackDelay);
+        MenuTrack.Play();
     }
 }
