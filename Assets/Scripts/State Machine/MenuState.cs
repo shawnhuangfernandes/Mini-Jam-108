@@ -74,5 +74,6 @@ public class MenuState : GameState
     {
         menuUI.SetActive(false);
         menuCamera.m_Priority = 0;
+        MenuTrack.Stop();
     }
 }

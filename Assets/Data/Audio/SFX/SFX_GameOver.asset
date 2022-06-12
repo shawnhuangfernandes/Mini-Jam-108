@@ -9,18 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c9c5a6a23c1c6d43b8ecbfc4eafd590, type: 3}
-  m_Name: GameMusic
+  m_Script: {fileID: 11500000, guid: 517a78bc000f86e48b79e097323a4949, type: 3}
+  m_Name: SFX_GameOver
   m_EditorClassIdentifier: 
   settings:
     BaseVolume: 1
     BasePitch: 1
     StereoPan: 0
     PlayOnAwake: 0
-    Loop: 1
-    Mixer: {fileID: -5469133610532944828, guid: 1db86cc432af30940aa5414c4def0723, type: 2}
-    FadeInDuration: 1
-    FadeOutDuration: 1
-  tracks:
-  - _clip: {fileID: 8300000, guid: a46fda113b7ae2b4db0f9828863a3623, type: 3}
-    _playInitially: 1
+    Loop: 0
+    Mixer: {fileID: 3582636206427203660, guid: 1db86cc432af30940aa5414c4def0723, type: 2}
+    RandomPitchDown: 0
+    RandomPitchUp: 0
+  variations:
+  - _clip: {fileID: 8300000, guid: 34b4b9fe7265d5244ad6f66853c19a76, type: 3}

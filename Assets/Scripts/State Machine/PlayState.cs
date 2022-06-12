@@ -79,5 +79,7 @@ public class PlayState : GameState
         playmodeCamera.m_Priority = 0;
 
         environmentVisuals.SetScrollSpeed(0F);
+
+        GameTrack.Stop();
     }
 }
