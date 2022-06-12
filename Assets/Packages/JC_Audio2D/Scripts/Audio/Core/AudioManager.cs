@@ -126,8 +126,8 @@ namespace JC.Audio2D
         /// </summary>
         public void MuteMusicTrack(Soundtrack soundtrack, int trackIndex)
         {
-            var audiosource = audioDictionary[soundtrack] as SoundtrackSourceGroup;
-            audiosource.MuteTrack(trackIndex);
+            var source = GetOrAddAudioSource(soundtrack);
+            (source as SoundtrackSourceGroup).MuteTrack(trackIndex);
         }
 
         /// <summary>
@@ -135,8 +135,8 @@ namespace JC.Audio2D
         /// </summary>
         public void UnmuteMusicTrack(Soundtrack soundtrack, int trackIndex)
         {
-            var audiosource = audioDictionary[soundtrack] as SoundtrackSourceGroup;
-            audiosource.UnmuteTrack(trackIndex);
+            var source = GetOrAddAudioSource(soundtrack);
+            (source as SoundtrackSourceGroup).UnmuteTrack(trackIndex);
         }
 
         private void HandleSoundtrackStarted(Soundtrack soundtrack)
