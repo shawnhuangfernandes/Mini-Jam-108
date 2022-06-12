@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9fe29b46d8e89f459389985fd9930ea, type: 3}
   m_Name: Bouncier
   m_EditorClassIdentifier: 
-  baseCost: 15
+  Name: Bouncier!
+  Description: Lose even less height when skipping
+  baseCost: 30
   rarity: {fileID: 11400000, guid: bf20eb9d2da9a8a44b60b94300b360eb, type: 2}
   icon: {fileID: 21300000, guid: a5573a7011b0ea748af2283a20ca338d, type: 3}
   upgrades:
