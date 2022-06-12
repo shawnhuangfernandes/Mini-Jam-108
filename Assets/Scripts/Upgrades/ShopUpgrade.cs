@@ -51,7 +51,12 @@ public class ShopUpgrade : ScriptableObject
 
     private void OnValidate()
     {
-        var shop = FindObjectOfType<Shop>();
-        shop.AddUpgrade(this);
+        // try block catches erroneous null reference exception
+        try
+        {
+            var shop = FindObjectOfType<Shop>();
+            shop.AddUpgrade(this);
+        }
+        catch (System.Exception) { }
     }
 }
