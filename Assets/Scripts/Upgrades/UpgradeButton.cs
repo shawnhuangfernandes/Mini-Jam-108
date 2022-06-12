@@ -99,6 +99,22 @@ public class UpgradeButton : MonoBehaviour
         CheckEnabledState();
     }
 
+    /// <summary>
+    /// Callback for when the button is selected.
+    /// </summary>
+    public void OnSelect()
+    {
+
+    }
+
+    /// <summary>
+    /// Callback for when the button is unselected.
+    /// </summary>
+    public void OnDeselect()
+    {
+
+    }
+
     private void RefreshDisplay()
     {
         costText.text = $"{storedUpgrade.Cost}";
