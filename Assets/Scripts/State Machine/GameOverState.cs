@@ -17,12 +17,24 @@ public class GameOverState : GameState
     [Tooltip("The UI display on game end.")]
     private GameObject gameOverUI;
 
+    private RockController _player;
+    private RockController player
+    {
+        get
+        {
+            if (_player == null)
+                _player = FindObjectOfType<RockController>();
+
+            return _player;
+        }
+    }
+
     protected override void OnStateEnter()
     {
         PlayerProperty.Points.Value = PlayerProperty.Distance.Value + PlayerProperty.Skips.Value;
         gameOverUI.SetActive(true);
-
-
+        player.ResetController();
+        player.enabled = false;
     }
 
     protected override void OnStateExit()

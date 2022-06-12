@@ -1023,6 +1023,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[Button] Upgrade'
       objectReference: {fileID: 0}
+    - target: {fileID: 2486606251883337810, guid: 342e4bf95b34027428f506b475d9a593, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2486606251883337810, guid: 342e4bf95b34027428f506b475d9a593, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2486606251883337810, guid: 342e4bf95b34027428f506b475d9a593, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2486606251883337811, guid: 342e4bf95b34027428f506b475d9a593, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1107,6 +1119,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4683117937714713270, guid: 342e4bf95b34027428f506b475d9a593, type: 3}
+      propertyPath: PurchaseSoundEffect
+      value: 
+      objectReference: {fileID: 11400000, guid: 7821235f2c11b69419314465627eab92, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 342e4bf95b34027428f506b475d9a593, type: 3}
 --- !u!224 &351221231 stripped
@@ -4629,6 +4645,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[Button] Upgrade'
       objectReference: {fileID: 0}
+    - target: {fileID: 2486606251883337810, guid: 342e4bf95b34027428f506b475d9a593, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2486606251883337810, guid: 342e4bf95b34027428f506b475d9a593, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2486606251883337810, guid: 342e4bf95b34027428f506b475d9a593, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2486606251883337811, guid: 342e4bf95b34027428f506b475d9a593, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4713,6 +4741,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4683117937714713270, guid: 342e4bf95b34027428f506b475d9a593, type: 3}
+      propertyPath: PurchaseSoundEffect
+      value: 
+      objectReference: {fileID: 11400000, guid: 7821235f2c11b69419314465627eab92, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 342e4bf95b34027428f506b475d9a593, type: 3}
 --- !u!224 &1916732327 stripped
@@ -4777,6 +4809,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[Button] Upgrade'
       objectReference: {fileID: 0}
+    - target: {fileID: 2486606251883337810, guid: 342e4bf95b34027428f506b475d9a593, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2486606251883337810, guid: 342e4bf95b34027428f506b475d9a593, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2486606251883337810, guid: 342e4bf95b34027428f506b475d9a593, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2486606251883337811, guid: 342e4bf95b34027428f506b475d9a593, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4861,6 +4905,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4683117937714713270, guid: 342e4bf95b34027428f506b475d9a593, type: 3}
+      propertyPath: PurchaseSoundEffect
+      value: 
+      objectReference: {fileID: 11400000, guid: 7821235f2c11b69419314465627eab92, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 342e4bf95b34027428f506b475d9a593, type: 3}
 --- !u!224 &1993110407 stripped
@@ -4879,6 +4927,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[Button] Upgrade'
       objectReference: {fileID: 0}
+    - target: {fileID: 2486606251883337810, guid: 342e4bf95b34027428f506b475d9a593, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2486606251883337810, guid: 342e4bf95b34027428f506b475d9a593, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2486606251883337810, guid: 342e4bf95b34027428f506b475d9a593, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2486606251883337811, guid: 342e4bf95b34027428f506b475d9a593, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4963,6 +5023,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4683117937714713270, guid: 342e4bf95b34027428f506b475d9a593, type: 3}
+      propertyPath: PurchaseSoundEffect
+      value: 
+      objectReference: {fileID: 11400000, guid: 7821235f2c11b69419314465627eab92, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 342e4bf95b34027428f506b475d9a593, type: 3}
 --- !u!224 &2077388619 stripped

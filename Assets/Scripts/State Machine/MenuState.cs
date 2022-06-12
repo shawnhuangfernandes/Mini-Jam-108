@@ -47,6 +47,8 @@ public class MenuState : GameState
         }
     }
 
+    
+
     /// <summary>
     /// Number of points the player currently has.
     /// </summary>
