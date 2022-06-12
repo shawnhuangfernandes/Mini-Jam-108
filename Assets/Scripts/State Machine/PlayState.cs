@@ -81,7 +81,7 @@ public class PlayState : GameState
 
         Timer += Time.deltaTime;
 
-        if (Timer > 5F)
+        if (Timer > 2F)
         {
             environmentVisuals.SpawnFloater();
             Timer =0F;

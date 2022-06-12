@@ -7,7 +7,8 @@ using UnityEngine;
 
 public class FloatingObject : MonoBehaviour
 {
-
+    [SerializeField]
+    private float DisableZThreshold = -4F;
     private RockController _player;
     private RockController player
     {
@@ -23,7 +24,7 @@ public class FloatingObject : MonoBehaviour
     {
         transform.position -= Vector3.forward * player.LateralSpeed * Time.deltaTime;
 
-        if (transform.position.z < player.transform.position.z - 4F)
+        if (transform.position.z < player.transform.position.z -+ DisableZThreshold)
             gameObject.SetActive(false);
     }
 }

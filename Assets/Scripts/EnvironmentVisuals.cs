@@ -28,7 +28,7 @@ public class EnvironmentVisuals : MonoBehaviour
     [SerializeField] List<ObjectPool> FloatingObjects = new List<ObjectPool>();
     [SerializeField] float MinZDistance = 15F;
     [SerializeField] float MaxZDistance = 35F;
-    [SerializeField] float MinXDistance = 4F;
+    [SerializeField] float MinXDistance = -25F;
     [SerializeField] float MaxXDistance = 25F;
 
     private RockController _player;
