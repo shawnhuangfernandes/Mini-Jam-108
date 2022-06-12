@@ -83,7 +83,7 @@ public class PlayState : GameState
 
         environmentVisuals.SetScrollSpeed(0F);
 
-        GameTrack.Stop();
+        AudioManager.Instance.FadeOutSoundtrack(GameTrack);
 
         if (PlayerProperty.Distance > PlayerProperty.BestDistance)
             PlayerProperty.BestDistance.Value = PlayerProperty.Distance.Value;
