@@ -1,6 +1,8 @@
 ﻿// Author:  Joseph Crump
 // Date:    01/31/22
+
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace JC.Audio2D
@@ -17,13 +19,19 @@ namespace JC.Audio2D
         private Dictionary<AudioEntry, IAudioSource> audioDictionary
             = new Dictionary<AudioEntry, IAudioSource>();
 
+        private static readonly object instanceLock = new object();
         private static AudioManager _instance;
         public static AudioManager Instance
         {
             get
             {
                 if (_instance == null)
-                    CreateInstance();
+                {
+                    lock (instanceLock)
+                    {
+                        GetOrCreateInstance();
+                    }
+                }
 
                 return _instance;
             }
@@ -191,17 +199,18 @@ namespace JC.Audio2D
             }
         }
 
-        private static void CreateInstance()
+        private static void GetOrCreateInstance()
         {
             if (_instance != null)
                 return;
 
-            var instances = FindObjectsOfType<AudioManager>();
-            if (instances.Length == 1)
+            var instances = FindObjectsOfType<AudioManager>().ToList();
+
+            if (instances.Count == 1)
             {
                 _instance = instances[0];
             }
-            else if (instances.Length > 1)
+            else if (instances.Count > 1)
             {
                 throw new System.Exception(
                     $"More than one instance of {nameof(AudioManager)} exists. " +
@@ -209,14 +218,22 @@ namespace JC.Audio2D
             }
             else
             {
-                _instance = Instantiate(new GameObject()).AddComponent<AudioManager>();
-                _instance.name = nameof(AudioManager);
+                _instance = Instantiate(new GameObject(nameof(AudioManager))).AddComponent<AudioManager>();
             }
 
             if (!Application.isPlaying)
                 return;
 
             DontDestroyOnLoad(_instance.gameObject);
+        }
+
+        private static void Delete(Object obj)
+        {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.delayCall += () => DestroyImmediate(obj);
+#else
+            Destroy(obj);
+#endif
         }
     }
 }

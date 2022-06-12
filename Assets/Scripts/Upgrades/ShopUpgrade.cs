@@ -33,4 +33,10 @@ public class ShopUpgrade : ScriptableObject
     {
         upgrades.ForEach(upgrade => upgrade.Apply());
     }
+
+    private void Awake()
+    {
+        var shop = FindObjectOfType<Shop>();
+        shop.AddUpgrade(this);
+    }
 }

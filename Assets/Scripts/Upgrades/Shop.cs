@@ -15,4 +15,25 @@ public class Shop : MonoBehaviour
 
     [SerializeField]
     private List<ShopUpgrade> upgrades = new List<ShopUpgrade>();
+
+    private void Start()
+    {
+        DeleteNullReferences();
+    }
+
+    /// <summary>
+    /// Add an upgrade to the upgrades list.
+    /// </summary>
+    public void AddUpgrade(ShopUpgrade upgrade)
+    {
+        if (upgrades.Contains(upgrade))
+            return;
+
+        upgrades.Add(upgrade);
+    }
+
+    private void DeleteNullReferences()
+    {
+        upgrades.RemoveAll(upgrade => upgrade == null);
+    }
 }
