@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Rare
   m_EditorClassIdentifier: 
   ShopWeight:
-    _baseValue: 100
+    _baseValue: 50
   Color: {r: 0.65241194, g: 0.74877805, b: 0.764151, a: 1}

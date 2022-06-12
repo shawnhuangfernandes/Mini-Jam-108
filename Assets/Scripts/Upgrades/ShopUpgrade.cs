@@ -38,6 +38,7 @@ public class ShopUpgrade : ScriptableObject
     /// </summary>
     public Rarity Rarity => rarity;
 
+    [SerializeField]
     private List<Upgrade> upgrades = new List<Upgrade>();
 
     /// <summary>

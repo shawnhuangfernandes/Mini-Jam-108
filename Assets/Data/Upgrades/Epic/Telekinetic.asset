@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9fe29b46d8e89f459389985fd9930ea, type: 3}
+  m_Name: Telekinetic
+  m_EditorClassIdentifier: 
+  baseCost: 15
+  rarity: {fileID: 11400000, guid: c6bf507c6da3e7046a75c7eda3fce558, type: 2}
+  icon: {fileID: 21300000, guid: 81fcb6a53d836a04ebc4e84eb1c0e24e, type: 3}
+  upgrades:
+  - affectedStat: 0
+    modifier:
+      Value: 1
+      Type: 0
+      Order: 0
+      Flags: 1
