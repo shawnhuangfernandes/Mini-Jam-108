@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4749566631764073883}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 16, z: 0}
+  m_LocalPosition: {x: 0, y: 8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7711707088512321871}
@@ -63,7 +63,7 @@ MonoBehaviour:
   ThresholdSize:
     _baseValue: 0.5
   StartHeight:
-    _baseValue: 16
+    _baseValue: 8
   BounceDegradationMultiplier:
     _baseValue: 0.7
   FaultyDegradationMultiplier:
@@ -73,7 +73,7 @@ MonoBehaviour:
   PrematureSkipCooldown:
     _baseValue: 0.5
   LateralSpeed:
-    _baseValue: 2.5
+    _baseValue: 8
   minSkippableBounceForce: 0.35
   minVelocity: -30
   maxVelocity: 30

@@ -223,7 +223,7 @@ public class RockController : MonoBehaviour
 
     private void Bounce()
     {
-        acceleration = bounceForce;
+        acceleration = bounceForce / 2f;
         velocity = acceleration;
     }
 
