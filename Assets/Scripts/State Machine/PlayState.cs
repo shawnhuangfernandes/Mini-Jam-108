@@ -56,6 +56,8 @@ public class PlayState : GameState
     [SerializeField]
     private float TrackDelay;
 
+    private float Timer;
+
     protected override void OnStateEnter()
     {
         PlayerProperty.Distance.Value = 0;
@@ -77,7 +79,13 @@ public class PlayState : GameState
     {
         PlayerProperty.Distance.Add(player.LateralSpeed * Time.deltaTime);
 
+        Timer += Time.deltaTime;
 
+        if (Timer > 5F)
+        {
+            environmentVisuals.SpawnFloater();
+            Timer =0F;
+        }
     }
 
     protected override void OnStateExit()
