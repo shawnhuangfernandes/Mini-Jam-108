@@ -31,6 +31,13 @@ public class EnvironmentVisuals : MonoBehaviour
     [SerializeField] float MinXDistance = -25F;
     [SerializeField] float MaxXDistance = 25F;
 
+    [SerializeField] float MinSpawnDuration = 2F;
+    [SerializeField] float MaxSpawnDuration = 4F;
+    
+
+    private float Timer;
+    private float CurrentSpawnTime;
+
     private RockController _player;
     private RockController player
     {
@@ -40,6 +47,32 @@ public class EnvironmentVisuals : MonoBehaviour
                 _player = FindObjectOfType<RockController>();
 
             return _player;
+        }
+    }
+
+    private GameManager _gm;
+    private GameManager gm
+    {
+        get
+        {
+            if (_gm == null)
+                _gm = FindObjectOfType<GameManager>();
+
+            return _gm;
+        }
+    }
+
+    private void Update()
+    {
+        if (gm.CurrentState == gm.PlayState)
+        {
+            Timer += Time.deltaTime;
+
+            if (Timer > CurrentSpawnTime)
+            {
+                SpawnFloater();
+                Timer = 0F;
+            }
         }
     }
 
@@ -59,15 +92,13 @@ public class EnvironmentVisuals : MonoBehaviour
 
     public void SpawnFloater()
     {
-        Debug.Log("SPAWN!");
         float xPos = UnityEngine.Random.Range(MinXDistance, MaxXDistance);
         float zPos = UnityEngine.Random.Range(MinZDistance, MaxZDistance);
         Vector3 playerPos = player.transform.position;
 
         Vector3 spawnPosition = new Vector3(playerPos.x + xPos, 0F, playerPos.z + zPos);
 
-        // TEST
-        FloatingObjects[0].SpawnObject(spawnPosition);
+        
     }
 
     public void SetScrollSpeed(Stat _speed)
@@ -87,6 +118,7 @@ public class ObjectPool
 {
     [Header("Pool Data")]
     [SerializeField] private string PoolName;
+    [SerializeField] private float DistanceThreshold;
     [SerializeField] private Transform PoolContainer;
     [SerializeField] private PooledObject Prefab;
     [SerializeField] private float SpawnHeight;
